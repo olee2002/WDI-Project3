@@ -103,7 +103,7 @@ class LoginPage extends Component {
                     <div>
 
                     <SignUpContainer>
-                        {/* <LoginSignUp/> */}
+                        <LoginSignUp/>
                     </SignUpContainer>
                         <Header>Select A User</Header>
 
