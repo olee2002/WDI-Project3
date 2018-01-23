@@ -26,20 +26,17 @@ User.remove({})
             email: 'ayana@gmail.com',
             firstName: 'Ayana',
             lastName: 'Red',
-            photoUrl: 'https://scontent-ort2-1.xx.fbcdn.net/v/t31.0-8/476988_113338118805486_1101913022_o.jpg?oh=e796fdec4d1212dbd5083d069e8edb71&oe=5AF919C4'
-        })
+            photoUrl: 'http://www.fillmurray.com/300/300'})
         const atlanta = new City({
             name: 'atlanta',
             location: 'Atlanta, GA',
-            photoUrl: 'https://imageserver-bisnow1.netdna-ssl.com/c4JtTfO8K44lGMaKcbH-J7gWsSA=/0x0/publisher/5a6217ea655ac_Atlanta_Skyline_from_Buckhead.jpeg'
-        })
+            photoUrl: 'http://www.fillmurray.com/300/300'})
         
 
         const arch = new Arch({
             name: 'arch',
             address: '123 street atlanta, ga',
-            photoUrl:'https://images1.apartments.com/i2/zBOcmejS_a60RtOHxPRZqasXZQRoqItBbw9BxwPCZws/111/the-lofts-at-college-hill-macon-ga-foto-del-edificio.jpg'
-        })
+            photoUrl:'http://www.fillmurray.com/300/300' })
         atlanta.archtecture.push(arch)
         return (ayana.save(), atlanta.save())
     })

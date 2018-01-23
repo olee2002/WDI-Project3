@@ -14,7 +14,10 @@ const ArchSchema = new Schema(
             type: String,
             default: 'http://www.cuded.com/wp-content/uploads/2014/04/Beijing-National-Stadium.jpg/300/300'
         }
-    },{ usePushEach: true }
+    }, {
+        timestamps: {},
+        usePushEach: true 
+    }
 )
 
 const CitySchema = new Schema(
@@ -29,7 +32,10 @@ const CitySchema = new Schema(
             default: 'https://www.gettyimages.com/detail/photo/the-city-of-dreams-new-york-citys-skyline-at-royalty-free-image/599766748/300/300'
         },
         archtecture: [ArchSchema]
-    },{ usePushEach: true }
+    }, {
+        timestamps: {},
+        usePushEach: true 
+    }
 )
 
 const UserSchema = new Schema(
@@ -47,7 +53,10 @@ const UserSchema = new Schema(
             type: String,
             default: 'http://www.fillmurray.com/300/300'
         }
-    },{ usePushEach: true }
+    }, {
+        timestamps: {},
+        usePushEach: true 
+    }
 )
 
 

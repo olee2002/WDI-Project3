@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-import SignUpForm from './LoginSignUp'
+import LoginSignUp from './LoginSignUp'
 import styled from 'styled-components'
 
 const Body = styled.div`
@@ -10,7 +10,7 @@ const Body = styled.div`
     position: absolute; 
     top: 0;
     left: 0;
-    background-color: #333f4b;
+    background-color: #212121;
 `;
 
 const Container = styled.div`
@@ -29,18 +29,20 @@ const NavBar = styled.div`
 const Header = styled.h1`
     color: white;
     font-size: 6vh;
-    border-bottom: thin solid white;
+    text-shadow: 3px 3px 0px black;
+    /* border-bottom: thin solid white; */
 `;
 
 const A = styled.a`
     text-decoration: none;
-    color: black;
-    font-size: 4vh;
+    text-shadow: 3px 3px 0px black;
+    color: white;
+    font-size: 3.5vh;
     &:hover{
-        border-bottom: thin solid white;
         color: white;
-        font-size: 4.5vh;
-        tex-shadow: 1px 1px 0px #212121;
+        font-size: 3.5vh;
+        transform:translateY(2px);
+        text-shadow: 0px 0px 0px black;
         z-index: 3;
     }
 `;
@@ -51,11 +53,14 @@ const Names = styled.div`
 `;
 
 const SignUpContainer = styled.div`
+margin-top:50px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgba(89, 110, 130, 0.6);
-    border-radius: 10px;
+    border:1px solid white;
+    box-shadow: 3px 3px 0px black;
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 150px;
     width:  300px;
     height: 300px;
 `;
@@ -96,19 +101,22 @@ class LoginPage extends Component {
 
                 <Container>
                     <div>
-                        <Header>Select a User</Header>
+
+                    <SignUpContainer>
+                        {/* <LoginSignUp/> */}
+                    </SignUpContainer>
+                        <Header>Select A User</Header>
 
                         {this.state.users.map(user => {
                             return (
                                 <Names key={user._id}>
-                                    <A href={`/users/${user._id}`}>{user.name} </A>
+                                    <A href={`/users/${user._id}`}>{user.userName} </A>
                                 </Names>
                             )
                         })}
+                 
+                    
                     </div>
-                    <SignUpContainer>
-                        <SignUpForm />
-                    </SignUpContainer>
                 </Container>
             </Body>
         );
