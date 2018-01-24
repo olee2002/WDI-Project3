@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import axios from 'axios'
+// import UserProfile from './UserProfile'
 import LoginSignUp from './LoginSignUp'
 import styled from 'styled-components'
 
@@ -82,7 +83,7 @@ class LoginPage extends Component {
     getAllUsers = async () => {
         try {
             const res = await axios.get('/api/users')
-            console.log('test try'+res.data)
+            console.log('USERS:'+res.data[0])
             this.setState({ users: res.data })
         } catch (err) {
             console.log(err)
@@ -107,10 +108,11 @@ class LoginPage extends Component {
                     </SignUpContainer>
                         <Header>Select A User</Header>
 
-                        {this.state.users.map(user => {
+                        {this.state.users.map((user,i) => {
                             return (
-                                <Names key={user._id}>
+                                <Names key={i}>
                                     <A href={`/users/${user._id}`}>{user.userName} </A>
+                        
                                 </Names>
                             )
                         })}

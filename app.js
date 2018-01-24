@@ -40,12 +40,12 @@ app.use(methodOverride('_method'))
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 const users = require('./routes/users')
-// const city = require('./routes/city')
-// const arch = require('./routes/arch')
+const city = require('./routes/city')
+const arch = require('./routes/arch')
 app.use('/api/users', users)
-// app.use('/api/city', city)
-// app.use('/api/city/:cityId/arch', arch)
-// error handler
+app.use('/api/city', city)
+app.use('/api/city/:cityId/arch', arch)
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
