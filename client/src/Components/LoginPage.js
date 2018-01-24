@@ -27,12 +27,14 @@ class LoginPage extends Component {
         this.setState({ users: res.data })
     }
     createUser = async () => {
+        console.log(this.state.users)
         const res = await axios.post(`/api/users`)
         const newUser = res.data
-
+        console.log(res.data)
         const newUsers = [...this.state.users]
         newUsers.unshift(newUser)
         this.setState({ redirect: true, users: newUsers, newUserId: res.data._id })
+        console.log(this.state.users)
     }
 
     deleteuser = async (user) => {
@@ -55,13 +57,12 @@ class LoginPage extends Component {
     }
 
     handleChange = (e) => {
-        const user = { ...this.state.user }
-        user[e.target.name] = e.target.value
-        this.setState({ user })
+        const newUser = [...this.state.newUser]
+        newUser[e.target.name] = e.target.value
+        this.setState({ newUser })
     }
-    
+
     handleSubmit = async (e) => {
-        console.log(this.state.newUser)
         e.preventDefault()
         this.createUser()
     }
@@ -74,12 +75,6 @@ class LoginPage extends Component {
     render() {
         return (
             <Body>
-                <NavBar>
-                    <div
-                        href="/"
-                        label="Home"
-                        primary={true} />
-                </NavBar>
                 <Container>
                     <div>
                         <SignUpContainer>
@@ -128,11 +123,6 @@ const Container = styled.div`
     margin: 100px;
 `;
 
-const NavBar = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-`;
 
 const Header = styled.h1`
     color: white;

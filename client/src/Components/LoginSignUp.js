@@ -17,18 +17,23 @@ const LoginSignUp = (props) => {
                 <div>
                     <br />
                     <input
+                        value={props.user.userName}
                         type="text"
                         placeholder="Name"
-                        onChange={(e) => props.handleChange(e)} name="name"
-                        value={props.user.userName}
+                        onChange={(e) => props.handleChange(e)}
+                        name="name"
+
                     />
                 </div>
                 <div>
                     <br />
                     <input
+                        value={props.user.photoUrl}
                         placeholder="image url"
-                        onChange={(e) => props.handleChange(e)} name="img"
-                        type="text" value={props.user.userName}
+                        onChange={(e) => props.handleChange(e)}
+                        name="img"
+                        type="text"
+
                     />
                 </div>
                 <br />
