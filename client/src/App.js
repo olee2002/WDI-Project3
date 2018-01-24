@@ -5,9 +5,10 @@ import styled from 'styled-components'
 
 //Importing components
 import HomePage from './Components/HomePage'
-import LoginPage from './Components/LoginPage'
+import UserPage from './Components/UserPage'
 import UserProfile from './Components/UserProfile'
 import CityPage from './Components/CityPage'
+import ArchPage from './Components/ArchPage'
 
 
 
@@ -21,7 +22,7 @@ class App extends Component {
 
             <Switch>
               <Route exact path='/' component={HomePage} />
-              <Route exact path='/users' component={LoginPage} />
+              <Route exact path='/users' component={UserPage} />
               <Route exact path='/users/:userId' component={UserProfile} />
               <Route exact path='/city' component={CityPage} />
             </Switch>
@@ -46,9 +47,8 @@ const Copyright = styled.div`
   margin-bottom: 15px;
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
-  font-size: 12px;
+  font-size: 11px;
   position: relative;
-  color: white
 
 `
 

@@ -1,19 +1,22 @@
+// Importing React
 import React from 'react'
 import { Redirect} from 'react-router-dom'
-// import axios from 'axios'
-// import styled from 'styled-components'
+import styled from 'styled-components'
 // import UserProfile from './UserProfile'
 
-const LoginSignUp = (props) => {
+///////////////////////////////////////////////////////////////////////////////////
+// STATELESS FUNCTION
+///////////////////////////////////////////////////////////////////////////////////
+const UserAddForm = (props) => {
 
     //after the post is done, redirect to the user profile page
     if (props.redirect) {
         return (<Redirect to={`/users/${props.id}`} />)
     }
     return (
-        <div>
-            <h2>Sign-Up</h2>
-            <form onSubmit={(e) => props.handleSubmit(e)}>
+        <AddUser>
+            <h2>Add User</h2>
+            <form onSubmit={props.handleSubmit}>
                 <div>
                     <br />
                     <input
@@ -39,8 +42,23 @@ const LoginSignUp = (props) => {
                 <br />
                 <button>Submit</button>
             </form>
-        </div>
+        </AddUser>
     )
 }
 
-export default LoginSignUp;
+export default UserAddForm
+
+///////////////////////////////////////////////////////////////////////////////////
+//STYLED-COMPONENTS
+///////////////////////////////////////////////////////////////////////////////////
+
+const AddUser = styled.div`
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    color: white;
+    /* margin-top: 200px; */
+    font-size: 2.5vh;
+    padding: 20px
+`

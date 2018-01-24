@@ -1,29 +1,33 @@
+// Importing React
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 
-
+///////////////////////////////////////////////////////////////////////////////////
+// CLASS
+///////////////////////////////////////////////////////////////////////////////////
 class HomePage extends Component {
     render() {
         return (
             <Container className="img">
                 <Title>
                     <Logo>
-                        <A class="color animated infinite pulse" href="/users">
+                        <F class="color animated infinite pulse" href="/users">
                             My Architecture
-                        </A>
+                        </F>
                     </Logo>
                     <br/>
                     <br/>
                     <br/>
-                    <Links>
-                    <Link to='/city'> CITIES </Link>|
-
-                    <Link to='/users'> USERS </Link>|
+                    <div>
+                    <C href='/users'> USERS </C>|
+                    <B href='/city'> CITIES </B>|
+                    <D href='/city/:cityId/arch'> ARCHITECTURE </D>
+                   
                     
-                    <Link to='/users'> LOGIN </Link>
-                    </Links>
+                   
+                    </div>
                 </Title>
             </Container>
         );
@@ -47,12 +51,12 @@ const Title = styled.div`
 
 const Logo = styled.h1`
     margin: 0 auto;
-    margin-top: 250px;
+    margin-top: 200px;
     font-size: 8.5vh;
     padding: 20px
 `
 
-const A = styled.a`
+const F = styled.a`
     text-decoration: none;
     color: white;
     text-shadow:4px 4px 8px #000000;
@@ -66,11 +70,44 @@ const Container = styled.div`
     height:100vh;
     background: #212121;
 `
-const Links = styled.a`
+const B = styled.a`
 text-decoration: none;
-font-size: 3.5vh;
+font-size: 3vh;
 color: white;
 text-shadow:4px 4px 8px #000000;
 z-index: auto;
+&:hover{
+    color: white;
+    font-size: 3vh;
+    text-shadow: 0px 0px 0px black;
+    z-index: 3;
+}
+`
 
+const C = styled.a`
+text-decoration: none;
+font-size: 3vh;
+color: white;
+text-shadow:4px 4px 8px #000000;
+z-index: auto;
+&:hover{
+    color: white;
+    font-size: 3vh;
+    text-shadow: 0px 0px 0px black;
+    z-index: 3;
+}
+`
+
+const D = styled.a`
+text-decoration: none;
+font-size: 3vh;
+color: white;
+text-shadow:4px 4px 8px #000000;
+z-index: auto;
+&:hover{
+    color: white;
+    font-size: 3vh;
+    text-shadow: 0px 0px 0px black;
+    z-index: 3;
+}
 `

@@ -1,18 +1,23 @@
+// Importing React
 import React from 'react'
-import City from './City'
 import styled from 'styled-components'
 
+//Importing components
+import City from './City'
 
-
+///////////////////////////////////////////////////////////////////////////////////
+// CLASS
+///////////////////////////////////////////////////////////////////////////////////
 const CityList = (props) => {
     return (
         <Card>
             <FlexRowCentered>
                 {
-                    props.cities.map((city,i) => {
+                    props.cities.map((city, i) => {
                         return (
                             <div>
-                            <City city={city} {...props} key={i} />
+                                <City city={city} {...props} key={i} />
+                               
                             </div>
                         )
                     })
@@ -29,8 +34,11 @@ export default CityList
 ///////////////////////////////////////////////////////////////////////////////////
 
 const Card = styled.div`
+  width: 100vw;
+  height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color:#212121;
   align-items: center;
   padding: 20px;
   border: 1px solid lightgray;

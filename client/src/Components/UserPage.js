@@ -1,14 +1,16 @@
+// Importing React
 import React, { Component } from 'react'
 // import { Link } from 'react-router-dom'
 import axios from 'axios'
-// import UserProfile from './UserProfile'
-import LoginSignUp from './LoginSignUp'
 import styled from 'styled-components'
 
+//Importing components
+import UserAddForm from './UserAddForm'
+
 ///////////////////////////////////////////////////////////////////////////////////
-//LOGIN PAGE CLASS
+// CLASS
 ///////////////////////////////////////////////////////////////////////////////////
-class LoginPage extends Component {
+class UserPage extends Component {
 
     state = {
         users: [],
@@ -26,13 +28,19 @@ class LoginPage extends Component {
         console.log('USERS:' + res.data)
         this.setState({ users: res.data })
     }
+
     createUser = async () => {
 
-        const res = await axios.post('/api/users', {
-            'user': this.state.newUser
-        })
-        this.setState({ redirect: true, newUserId: res.data._id })
-
+        const payload = {
+            name: this.state.newUser.userName,
+            imgUrl: this.state.newUser.photoUrl
+        }
+        const blankForm = {
+            name: '',
+            imgUrl: ''
+        }
+        const res = await axios.post('/api/users', payload)
+        this.setState({ redirect: true, newUser: blankForm, newUserId: res.data._id })
     }
 
     deleteuser = async (user) => {
@@ -77,7 +85,7 @@ class LoginPage extends Component {
                 <Container>
                     <div>
                         <SignUpContainer>
-                            <LoginSignUp
+                            <UserAddForm
                                 users={this.state.users}
                                 user={this.state.newUser}
                                 id={this.state.newUserId}
@@ -103,7 +111,7 @@ class LoginPage extends Component {
     }
 }
 
-export default LoginPage;
+export default UserPage;
 
 ///////////////////////////////////////////////////////////////////////////////////
 //STYLED-COMPONENTS

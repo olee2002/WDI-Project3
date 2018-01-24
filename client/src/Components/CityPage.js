@@ -1,9 +1,13 @@
+// Importing React
 import React, { Component } from 'react'
 import axios from 'axios'
 
+//Importing components
 import CityList from './CityList'
 
-
+///////////////////////////////////////////////////////////////////////////////////
+// CLASS
+///////////////////////////////////////////////////////////////////////////////////
 class cityPage extends Component {
 
     state = {
@@ -15,7 +19,7 @@ class cityPage extends Component {
         this.setState({ cities: res.data })
     }
 
-    createcity = async () => {
+    createCity = async () => {
         const res = await axios.post(`/api/city`)
         const newCity = res.data 
 
@@ -66,8 +70,8 @@ class cityPage extends Component {
             <div>
 
                 <div>
-                    <h1>city Board</h1>
-                    <div onClick={this.createcity}>New city</div>
+                    <h1>List Of Cities</h1>
+                    <div onClick={this.createCity}>Add New City</div>
                 </div>
 
                 <CityList cities={this.state.cities}
@@ -81,3 +85,8 @@ class cityPage extends Component {
 }
 
 export default cityPage
+
+
+///////////////////////////////////////////////////////////////////////////////////
+//STYLED-COMPONENTS
+///////////////////////////////////////////////////////////////////////////////////

@@ -1,10 +1,14 @@
+
+// Importing React
 import React, { Component } from 'react'
 import axios from 'axios'
 // import { Link } from 'react-router-dom'
-// import styled from 'styled-components'
+import styled from 'styled-components'
 
 
-
+///////////////////////////////////////////////////////////////////////////////////
+// CLASS
+///////////////////////////////////////////////////////////////////////////////////
 class UserProfile extends Component {
 
     state = {
@@ -26,17 +30,42 @@ class UserProfile extends Component {
     }
 
     render() {
+        const{user} = this.state
         return (
-            <div>
+            <Profile>
                 <div>
-                    <h1>{this.state.user.userName}'s Profile</h1>
+                    <h1>{user.userName}'s Profile</h1>
                 </div>    
                 <div>
-                    <img src={this.state.user.imgUrl} alt="Profile Pic" />              
+                    <img src={user.photoUrl} alt="Profile Pic" />              
                 </div>
-            </div>
+                <div>
+                    <h3>User Name: {user.userName}</h3>
+                    <a href='/city'> CITIES </a>|
+                    <a href='/city/:cityId/arch'> ARCHITECTURE </a>
+                    </div>
+            </Profile>
         )
     }
 }
 
 export default UserProfile;
+
+///////////////////////////////////////////////////////////////////////////////////
+//STYLED-COMPONENTS
+///////////////////////////////////////////////////////////////////////////////////
+
+const Profile = styled.div`
+    width: 100vw;
+    height:100vh;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    background-color: #212121;
+    margin: 0 auto;
+    /* margin-top: 200px; */
+    font-size: 2.5vh;
+    padding: 20px;
+    text-decoration: none;
+`
