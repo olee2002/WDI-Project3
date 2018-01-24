@@ -7,7 +7,7 @@ router.get('/', async (req, res) => {
     // Try catch blocks allow us to catch potential error messages
     try {
         //Find all users
-        const users = await User.find()
+        const users = await User.find({})
         // Send JSON of all users
         res.json(users)
     } catch (err) {
@@ -33,6 +33,7 @@ router.post('/', async (req, res) => {
         //create a user
         const newUser = await User.create(req.body)
         res.json(newUser)
+        console.log(newUser)
     } catch (err) {
         res.send(err)
     }

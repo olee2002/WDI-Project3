@@ -23,9 +23,8 @@ const UserAddForm = (props) => {
                         value={props.user.userName}
                         type="text"
                         placeholder="Name"
-                        onChange={(e) => props.handleChange(e)}
-                        name="name"
-
+                        onChange={props.handleChange}
+                        name="userName"
                     />
                 </div>
                 <div>
@@ -34,9 +33,8 @@ const UserAddForm = (props) => {
                         value={props.user.photoUrl}
                         placeholder="image url"
                         onChange={(e) => props.handleChange(e)}
-                        name="img"
+                        name="photoUrl"
                         type="text"
-
                     />
                 </div>
                 <br />
@@ -59,6 +57,6 @@ const AddUser = styled.div`
     margin: 0 auto;
     color: white;
     /* margin-top: 200px; */
-    font-size: 2.5vh;
+    font-size: 2vh;
     padding: 20px
 `

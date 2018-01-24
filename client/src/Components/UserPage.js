@@ -14,10 +14,7 @@ class UserPage extends Component {
 
     state = {
         users: [],
-        newUser: {
-            userName: 'Olee',
-            photoUrl: 'http://www.fillmurray.com/300/300',
-        },
+        newUser: {},
         redirect: false,
         newUserId: ''
     }
@@ -28,52 +25,26 @@ class UserPage extends Component {
         console.log('USERS:' + res.data)
         this.setState({ users: res.data })
     }
-
-    createUser = async () => {
-
+    //create users
+    handleSubmit = async (e) => {
+        e.preventDefault()
         const payload = {
-            name: this.state.newUser.userName,
-            imgUrl: this.state.newUser.photoUrl
+            userName: this.state.newUser.userName,
+            photoUrl: this.state.newUser.photoUrl
         }
         const blankForm = {
-            name: '',
-            imgUrl: ''
+            userName: '',
+            photoUrl: '',
         }
         const res = await axios.post('/api/users', payload)
         this.setState({ redirect: true, newUser: blankForm, newUserId: res.data._id })
     }
 
-    deleteuser = async (user) => {
-        try {
-
-            await axios.delete(`/api/users/${user._id}`)
-            const indexToDelete = this.state.users.indexOf(user)
-            const newUsers = [...this.state.users]
-            newUsers.splice(indexToDelete, 1)
-            this.setState({ users: newUsers })
-        } catch (error) {
-            console.log(error)
-        }
-    }
-    updateUser = async (user) => {
-        try {
-            await axios.patch(`/api/users/${user._id}`, user)
-        } catch (error) {
-            console.log(error)
-        }
-    }
-
     handleChange = (e) => {
-        const newUser = [...this.state.newUser]
+        const newUser = { ...this.state.newUser }
         newUser[e.target.name] = e.target.value
         this.setState({ newUser })
     }
-
-    handleSubmit = async (e) => {
-        e.preventDefault()
-        this.createUser()
-    }
-
 
     ///////////////////////////////////////////////////////////////////////////////////
     //RENDER
@@ -83,6 +54,11 @@ class UserPage extends Component {
         return (
             <Body>
                 <Container>
+                    <div>
+                        <a href='/'> HOME </a>|
+                    <a href='/city'> CITIES </a>|
+                    <a href='/city/:cityId/arch'> ARCHITECTURE </a>
+                    </div>
                     <div>
                         <SignUpContainer>
                             <UserAddForm
@@ -128,8 +104,9 @@ const Body = styled.div`
 
 const Container = styled.div`
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin: 100px;
 `;
 

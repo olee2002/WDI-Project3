@@ -2,7 +2,7 @@
 // Importing React
 import React, { Component } from 'react'
 import axios from 'axios'
-// import { Link } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 import styled from 'styled-components'
 
 
@@ -12,7 +12,8 @@ import styled from 'styled-components'
 class UserProfile extends Component {
 
     state = {
-        user: {}
+        user: {},
+        redirect:false
     }
     componentWillMount() {
         this.getUserInfo()
@@ -28,22 +29,41 @@ class UserProfile extends Component {
             console.log(err)
         }
     }
-
+    deleteUser = async () => {
+       
+        const userId = this.props.match.params.userId
+        const res = await axios.delete(`/api/users/${userId}`)
+        console.log(res.data)
+        this.setState({ user: res.data, redirect: true })
+    }
     render() {
-        const{user} = this.state
+        const { user } = this.state
+        if (this.state.redirect) {
+            return (<Redirect to={`/users`} />)
+        }
         return (
             <Profile>
                 <div>
-                    <h1>{user.userName}'s Profile</h1>
-                </div>    
+                    <a href='/'> HOME </a>|
+                    <a href='/users'> USERS </a>|
+                    <a href='/city'> CITIES </a>|
+                    <a href='/city/:cityId/arch'> ARCHITECTURE </a>
+                </div>
+                <br />
+                <br />
+                <br />
+                <br />
                 <div>
-                    <img src={user.photoUrl} alt="Profile Pic" />              
+                    <h1>{user.userName}'s Profile</h1>
+                </div>
+                <div>
+                    <img src={user.photoUrl} alt="Profile Pic" />
                 </div>
                 <div>
                     <h3>User Name: {user.userName}</h3>
-                    <a href='/city'> CITIES </a>|
-                    <a href='/city/:cityId/arch'> ARCHITECTURE </a>
-                    </div>
+                    <button onClick={this.deleteUser}> Delete</button>|
+                    <button onClick={this.UpdateUser}> Edit</button>
+                </div>
             </Profile>
         )
     }
