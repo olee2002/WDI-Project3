@@ -6,7 +6,7 @@ import LoginSignUp from './LoginSignUp'
 import styled from 'styled-components'
 
 ///////////////////////////////////////////////////////////////////////////////////
-//LOGINPAGE CLASS
+//LOGIN PAGE CLASS
 ///////////////////////////////////////////////////////////////////////////////////
 class LoginPage extends Component {
 
@@ -27,18 +27,17 @@ class LoginPage extends Component {
         this.setState({ users: res.data })
     }
     createUser = async () => {
-        console.log(this.state.users)
-        const res = await axios.post(`/api/users`)
-        const newUser = res.data
-        console.log(res.data)
-        const newUsers = [...this.state.users]
-        newUsers.unshift(newUser)
-        this.setState({ redirect: true, users: newUsers, newUserId: res.data._id })
-        console.log(this.state.users)
+
+        const res = await axios.post('/api/users', {
+            'user': this.state.newUser
+        })
+        this.setState({ redirect: true, newUserId: res.data._id })
+
     }
 
     deleteuser = async (user) => {
         try {
+
             await axios.delete(`/api/users/${user._id}`)
             const indexToDelete = this.state.users.indexOf(user)
             const newUsers = [...this.state.users]
@@ -103,6 +102,9 @@ class LoginPage extends Component {
         );
     }
 }
+
+export default LoginPage;
+
 ///////////////////////////////////////////////////////////////////////////////////
 //STYLED-COMPONENTS
 ///////////////////////////////////////////////////////////////////////////////////
@@ -162,4 +164,3 @@ margin-top:50px;
     width:  300px;
     height: 300px;
 `
-export default LoginPage;

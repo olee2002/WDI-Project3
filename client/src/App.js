@@ -1,31 +1,54 @@
 // Importing React
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-
+import styled from 'styled-components'
 
 //Importing components
 import HomePage from './Components/HomePage'
 import LoginPage from './Components/LoginPage'
 import UserProfile from './Components/UserProfile'
+import CityPage from './Components/CityPage'
+
 
 
 class App extends Component {
   render() {
     return (
-      <Router>
-        <div>
+      <div>
+        <Copyright className="copyRight">Copyright © 2018, MyArchitecture App, LLC All Rights Reserved. </Copyright >
+        <Router>
+          <div>
 
-          <Switch>
-            <Route exact path='/' component={HomePage} />
-            <Route exact path='/users' component={LoginPage} />
-            <Route exact path='/users/:userId' component={UserProfile} /> 
+            <Switch>
+              <Route exact path='/' component={HomePage} />
+              <Route exact path='/users' component={LoginPage} />
+              <Route exact path='/users/:userId' component={UserProfile} />
+              <Route exact path='/city' component={CityPage} />
+            </Switch>
 
-          </Switch>
-          <div className="copyRight">Copyright © 2018, MyArchitecture App,LLC All Rights Reserved. </div>
-        </div>
-      </Router>
-    );
+          </div>
+        </Router>
+      </div>
+    )
   }
 }
 
+
 export default App;
+
+///////////////////////////////////////////////////////////////////////////////////
+//STYLED-COMPONENTS
+///////////////////////////////////////////////////////////////////////////////////
+
+const Copyright = styled.div`
+  margin-top: 15px;
+  margin-left: 15px;
+  margin-bottom: 15px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  position: relative;
+  color: white
+
+`
+

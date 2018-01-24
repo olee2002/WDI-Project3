@@ -1,49 +1,50 @@
-const express = require('express')
+const express = require('express');
 const router = express.Router({ mergeParams: true })
-const City = require('../db/models/City')
+const Arch = require('../db/models/Arch')
 
 
-//Index Route
 router.get('/', async (req, res) => {
     try {
-        const city = await city.findById(req.params.id)
-        const arch = city.arch
-        res.json(arch)
-    } catch (err) {
-        res.send(err)
+        const cities = await Arch.find({})
+        res.json(cities)
+    } catch (error) {
+        console.log(error)
+        res.sendStatus(500)
     }
 })
-
 
 router.post('/', async (req, res) => {
     try {
-        const newArch = new Arch(req.body.arch)
-        console.log(newArch)
-
-        const city = await city.findById(req.params.id)
-
-        city.arch.push(newArch)
-
-        const saved = await city.save()
-        res.json(saved)
-    } catch (err) {
-        res.send(err)
+        const newArch = await Arch.create({})
+        res.json(newArch)
+    } catch (error) {
+        console.log(error)
+        res.sendStatus(500)
     }
 })
-
 
 router.delete('/:archId', async (req, res) => {
     try {
-        console.log('route hit')
-        const city = await city.findById(req.params.id)
-        console.log(req.params.archId)
-        city.arch.id(req.params.archId).remove()
-        const saved = await city.save()
-        console.log(saved)
-        res.json(saved)
-    } catch (err) {
-        res.send(err)
+        await Arch.findByIdAndRemove(req.params.archId)
+        res.sendStatus(200)
+    } catch (error) {
+        console.log(error)
+        res.sendStatus(500)
     }
 })
 
-module.exports = router;
+router.patch('/:archId', async (req, res) => {
+    try {
+
+
+        const updatedArch =
+            await Arch.findByIdAndUpdate(req.params.archId, req.body, { new: true })
+
+        res.json(updatedArch)
+    } catch (error) {
+        console.log(error)
+        res.sendStatus(500)
+    }
+})
+
+module.exports = router

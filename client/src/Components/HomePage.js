@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+
+
 
 class HomePage extends Component {
     render() {
@@ -12,25 +14,40 @@ class HomePage extends Component {
                             My Architecture
                         </A>
                     </Logo>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <Links>
+                    <Link to='/city'> CITIES </Link>|
 
+                    <Link to='/users'> USERS </Link>|
+                    
+                    <Link to='/users'> LOGIN </Link>
+                    </Links>
                 </Title>
             </Container>
         );
     }
 }
 
+export default HomePage;
+
+///////////////////////////////////////////////////////////////////////////////////
+//STYLED-COMPONENTS
+///////////////////////////////////////////////////////////////////////////////////
+
 const Title = styled.div`
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
-    align-self: flex-start;
+    align-items: center;
     z-index: 2;
     
 `
 
 const Logo = styled.h1`
     margin: 0 auto;
-    margin-top: 300px;
+    margin-top: 250px;
     font-size: 8.5vh;
     padding: 20px
 `
@@ -49,7 +66,11 @@ const Container = styled.div`
     height:100vh;
     background: #212121;
 `
+const Links = styled.a`
+text-decoration: none;
+font-size: 3.5vh;
+color: white;
+text-shadow:4px 4px 8px #000000;
+z-index: auto;
 
-
-
-export default HomePage;
+`

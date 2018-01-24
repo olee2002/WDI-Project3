@@ -18,36 +18,41 @@ mongoose.connection.on('error', (error) => {
     `)
     process.exit(-1)
 })
+City.remove({})
+    .then(() => {
 
-User.remove({})
+        const atlanta = new City({
+            name: 'atlanta',
+            location: 'Atlanta, GA',
+            photoUrl: 'http://www.fillmurray.com/300/300'
+        })
+
+
+        const arch = new Arch({
+            name: 'arch',
+            address: '123 street atlanta, ga',
+            photoUrl: 'http://www.fillmurray.com/300/300'
+        })
+        atlanta.archtecture.push(arch)
+
+        return atlanta.save()
+
+    })
+    .then(() => User.remove({})
+    )
     .then(() => {
         const ayana = new User({
             userName: 'Ayana',
             email: 'ayana@gmail.com',
             firstName: 'Ayana',
             lastName: 'Red',
-            photoUrl: 'http://www.fillmurray.com/300/300'})
+            photoUrl: 'http://www.fillmurray.com/300/300'
+        })
 
 
-        return ayana.save({})
+        return ayana.save()
     })
-    .then(()=>{
 
-        const atlanta = new City({
-            name: 'atlanta',
-            location: 'Atlanta, GA',
-            photoUrl: 'http://www.fillmurray.com/300/300'})
-        
-
-        const arch = new Arch({
-            name: 'arch',
-            address: '123 street atlanta, ga',
-            photoUrl:'http://www.fillmurray.com/300/300' })
-        atlanta.archtecture.push(arch)
-
-        return atlanta.save({})
-
-    })
     .catch((error) => {
         console.log('!!!!! ERROR SAVING SEEDED DATA !!!!!')
         console.log(error)

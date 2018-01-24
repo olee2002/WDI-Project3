@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import { Redirect, Link } from 'react-router-dom'
-import axios from 'axios'
-import styled from 'styled-components'
+import React from 'react'
+import { Redirect} from 'react-router-dom'
+// import axios from 'axios'
+// import styled from 'styled-components'
 // import UserProfile from './UserProfile'
 
 const LoginSignUp = (props) => {
