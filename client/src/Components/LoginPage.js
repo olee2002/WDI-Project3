@@ -5,6 +5,113 @@ import axios from 'axios'
 import LoginSignUp from './LoginSignUp'
 import styled from 'styled-components'
 
+///////////////////////////////////////////////////////////////////////////////////
+//LOGINPAGE CLASS
+///////////////////////////////////////////////////////////////////////////////////
+class LoginPage extends Component {
+
+    state = {
+        users: [],
+        newUser: {
+            userName: 'Olee',
+            photoUrl: 'http://www.fillmurray.com/300/300',
+        },
+        redirect: false,
+        newUserId: ''
+    }
+
+    //Using axios to get all the users
+    async componentWillMount() {
+        const res = await axios.get('/api/users')
+        console.log('USERS:' + res.data)
+        this.setState({ users: res.data })
+    }
+    createUser = async () => {
+        const res = await axios.post(`/api/users`)
+        const newUser = res.data
+
+        const newUsers = [...this.state.users]
+        newUsers.unshift(newUser)
+        this.setState({ redirect: true, users: newUsers, newUserId: res.data._id })
+    }
+
+    deleteuser = async (user) => {
+        try {
+            await axios.delete(`/api/users/${user._id}`)
+            const indexToDelete = this.state.users.indexOf(user)
+            const newUsers = [...this.state.users]
+            newUsers.splice(indexToDelete, 1)
+            this.setState({ users: newUsers })
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    updateUser = async (user) => {
+        try {
+            await axios.patch(`/api/users/${user._id}`, user)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    handleChange = (e) => {
+        const user = { ...this.state.user }
+        user[e.target.name] = e.target.value
+        this.setState({ user })
+    }
+    
+    handleSubmit = async (e) => {
+        console.log(this.state.newUser)
+        e.preventDefault()
+        this.createUser()
+    }
+
+
+    ///////////////////////////////////////////////////////////////////////////////////
+    //RENDER
+    ///////////////////////////////////////////////////////////////////////////////////
+
+    render() {
+        return (
+            <Body>
+                <NavBar>
+                    <div
+                        href="/"
+                        label="Home"
+                        primary={true} />
+                </NavBar>
+                <Container>
+                    <div>
+                        <SignUpContainer>
+                            <LoginSignUp
+                                users={this.state.users}
+                                user={this.state.newUser}
+                                id={this.state.newUserId}
+                                redirect={this.state.redirect}
+                                handleChange={this.handleChange}
+                                handleSubmit={this.handleSubmit}
+                                updateUser={this.updateUser}
+                                deleteUser={this.deleteUser}
+                            />
+                        </SignUpContainer>
+                        <Header>Select A User</Header>
+                        {this.state.users.map((user, i) => {
+                            return (
+                                <Names key={i}>
+                                    <A href={`/users/${user._id}`}>{user.userName} </A>
+                                </Names>
+                            )
+                        })}
+                    </div>
+                </Container>
+            </Body>
+        );
+    }
+}
+///////////////////////////////////////////////////////////////////////////////////
+//STYLED-COMPONENTS
+///////////////////////////////////////////////////////////////////////////////////
+
 const Body = styled.div`
     height: 100%;
     width: 100%;
@@ -64,65 +171,5 @@ margin-top:50px;
     border-radius: 150px;
     width:  300px;
     height: 300px;
-`;
-
-
-
-class LoginPage extends Component {
-
-    state = {
-        users: []
-    }
-
-    // Call the getAllUsers method as soon as the component is created
-    componentWillMount() {
-        this.getAllUsers()
-    }
-
-    //Using axios to get all the users
-    getAllUsers = async () => {
-        try {
-            const res = await axios.get('/api/users')
-            console.log('USERS:'+res.data[0])
-            this.setState({ users: res.data })
-        } catch (err) {
-            console.log(err)
-        }
-    }
-
-    render() {
-        return (
-            <Body>
-                <NavBar>
-                    <div
-                        href="/"
-                        label="Home"
-                        primary={true}/>
-                </NavBar>
-
-                <Container>
-                    <div>
-
-                    <SignUpContainer>
-                        <LoginSignUp/>
-                    </SignUpContainer>
-                        <Header>Select A User</Header>
-
-                        {this.state.users.map((user,i) => {
-                            return (
-                                <Names key={i}>
-                                    <A href={`/users/${user._id}`}>{user.userName} </A>
-                        
-                                </Names>
-                            )
-                        })}
-                 
-                    
-                    </div>
-                </Container>
-            </Body>
-        );
-    }
-}
-
+`
 export default LoginPage;

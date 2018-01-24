@@ -2,7 +2,22 @@ import React, { Component } from 'react'
 // import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
+class HomePage extends Component {
+    render() {
+        return (
+            <Container className="img">
+                <Title>
+                    <Logo>
+                        <A class="color animated infinite pulse" href="/users">
+                            My Architecture
+                        </A>
+                    </Logo>
 
+                </Title>
+            </Container>
+        );
+    }
+}
 
 const Title = styled.div`
     display: flex;
@@ -36,19 +51,5 @@ const Container = styled.div`
 `
 
 
-
-
-class HomePage extends Component {
-    render() {
-        return (
-            <Container className="img">
-                <Title>
-                    <Logo><A class="color animated infinite pulse" href="/users">My Architecture</A></Logo>
-
-                </Title>
-            </Container>
-        );
-    }
-}
 
 export default HomePage;
