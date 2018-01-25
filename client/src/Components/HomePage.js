@@ -21,7 +21,7 @@ class HomePage extends Component {
                     <br />
                     <br />
 
-                    <br />
+                    
                     <div>
                         <C href='/users'> USERS </C>|
                     <B href='/city'> CITIES </B>|
