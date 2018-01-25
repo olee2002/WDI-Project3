@@ -59,7 +59,6 @@ class UserProfile extends Component {
         e.preventDefault()
 
         const userId = this.props.match.params.userId
-        const clonedUser = { ...this.state.user }
         const payload = {
             userName: this.state.user.userName
         }

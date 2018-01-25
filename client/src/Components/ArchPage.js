@@ -7,7 +7,7 @@ import axios from 'axios'
 ///////////////////////////////////////////////////////////////////////////////////
 class ArchPage extends Component {
     state = {
-        city: {}
+        arch: {}
     }
     componentWillMount() {
         this.getcityInfo()
@@ -15,9 +15,9 @@ class ArchPage extends Component {
 
     getcityInfo = async () => {
         try {
-            const { cityId } = this.props.match.params
+            const { archId } = this.props.match.params
 
-            const res = await axios.get(`/api/city/${cityId}`)
+            const res = await axios.get(`/api/city/${cityId}/arch`)
             this.setState({ city: res.data })
         } catch (err) {
             console.log(err)

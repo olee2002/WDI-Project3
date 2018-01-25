@@ -11,25 +11,43 @@ const ArchSchema = new Schema(
         },
         address: String,
         photoUrl:String,
+    },
+    {
+        timestamps: {},
+        usePushEach: true
     }
  
 )
 
 const CitySchema = new Schema(
     {
-        name: String,
+        name:{
+            type: String,
+            required: true,
+        },
         location: String,
         photoUrl: String,    
         archtecture: [ArchSchema]
-    })
+    },
+    {
+        timestamps: {},
+        usePushEach: true
+    }
+)
     
 
 const UserSchema = new Schema(
     {
-        userName:String,
+        userName:{
+            type: String,
+            required: true,
+        },
         email: String,
         lastName: String,
         photoUrl: String,
+    },
+    {
+        timestamps: {}
     }
 
 )
