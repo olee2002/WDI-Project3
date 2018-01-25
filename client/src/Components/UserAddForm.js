@@ -37,6 +37,7 @@ const UserAddForm = (props) => {
                         type="text"
                     />
                 </div>
+                
                 <br />
                 <button>Submit</button>
             </form>
@@ -55,8 +56,27 @@ const AddUser = styled.div`
     flex-direction: column;
     align-items: center;
     margin: 0 auto;
-    color: white;
+    color: black;
     /* margin-top: 200px; */
-    font-size: 2vh;
-    padding: 20px
+    font-size: 2.5vh;
+    padding: 15px;
+    text-shadow: 3px 3px 0px #bdbdbd;
+    input{
+        display:flex;
+        align-items: center;
+        border:none;
+        width: 150px;
+        height: 30px;
+        border-radius: 3px;
+        box-shadow:1.25px 1.25px 0px black
+    };
+    button{
+        border:none;
+        height: 30px;
+        width: 70px;
+        margin-left: 40px;
+        border-radius: 7px;
+        box-shadow:1px 1px 0px black;
+        font-family: 'Architects Daughter';
+    }
 `

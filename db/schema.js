@@ -7,7 +7,7 @@ const ArchSchema = new Schema(
     {
         name: {
             type: String,
-            required: true,
+           
         },
         address: String,
         photoUrl:String,
@@ -23,7 +23,7 @@ const CitySchema = new Schema(
     {
         name:{
             type: String,
-            required: true,
+           
         },
         location: String,
         photoUrl: String,    

@@ -15,7 +15,7 @@ import CityPage from './Components/CityPage'
 class App extends Component {
   render() {
     return (
-      <div>
+      <div className='img'>
         <Copyright className="copyRight">Copyright © 2018, MyArchitecture App, LLC All Rights Reserved. </Copyright >
         <Router>
           <div>

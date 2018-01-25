@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
+import { media } from 'sharedFile.js'
 
 ///////////////////////////////////////////////////////////////////////////////////
 // CLASS
@@ -10,24 +11,24 @@ import styled from 'styled-components'
 class HomePage extends Component {
     render() {
         return (
-            <Container className="img">
+            <Container>
                 <Title>
                     <Logo>
                         <F class="color animated infinite pulse" href="/users">
                             My Architecture
                         </F>
                     </Logo>
-                    <br/>
-                    <br/>
-                 
-                    <br/>
+                    <br />
+                    <br />
+
+                    <br />
                     <div>
-                    <C href='/users'> USERS </C>|
+                        <C href='/users'> USERS </C>|
                     <B href='/city'> CITIES </B>|
                     <D href='/city/:cityId/arch'> ARCHITECTURE </D>
-                   
-                    
-                   
+
+
+
                     </div>
                 </Title>
             </Container>
@@ -52,9 +53,12 @@ const Title = styled.div`
 
 const Logo = styled.h1`
     margin: 0 auto;
-    margin-top: 200px;
+    margin-top: 300px;
     font-size: 8.5vh;
-    padding: 20px
+    padding: 20px;
+    ${media.medium`
+    margin-top: 450px;
+  `}
 `
 
 const F = styled.a`
@@ -63,7 +67,9 @@ const F = styled.a`
     text-shadow:4px 4px 8px #000000;
     z-index: auto;
     &:hover {
+        color: #d3d3d3 ;
         text-shadow: none;
+        transform:translateY(2px);
     }
 `
 const Container = styled.div`
@@ -78,7 +84,8 @@ color: white;
 text-shadow:4px 4px 4px #000000;
 z-index: auto;
 &:hover{
-    color: white;
+    color: #A8A8A8;
+    transform:translateY(2px);
     font-size: 3vh;
     text-shadow: 0px 0px 0px black;
     z-index: 3;
@@ -92,8 +99,9 @@ color: white;
 text-shadow:4px 4px 4px #000000;
 z-index: auto;
 &:hover{
-    color: white;
+    color: #A8A8A8;
     font-size: 3vh;
+    transform:translateY(2px);
     text-shadow: 0px 0px 0px black;
     z-index: 3;
 }
@@ -106,8 +114,9 @@ color: white;
 text-shadow:4px 4px 4px #000000;
 z-index: auto;
 &:hover{
-    color: white;
+    color: #A8A8A8;
     font-size: 3vh;
+    transform:translateY(2px);
     text-shadow: 0px 0px 0px black;
     z-index: 3;
 }

@@ -73,13 +73,15 @@ class UserPage extends Component {
                             />
                         </SignUpContainer>
                         <Header>Select A User</Header>
+                        <Users>
                         {this.state.users.map((user, i) => {
                             return (
                                 <Names key={i}>
-                                    <A href={`/users/${user._id}`}>{user.userName} </A>
+                                    <A href={`/users/${user._id}`}><UserBox>{user.userName}</UserBox> </A>
                                 </Names>
                             )
                         })}
+                        </Users>
                     </div>
                 </Container>
             </Body>
@@ -99,7 +101,7 @@ const Body = styled.div`
     position: absolute; 
     top: 0;
     left: 0;
-    background-color: #212121;
+    /* background-color: #212121; */
 `;
 
 const Container = styled.div`
@@ -107,27 +109,37 @@ const Container = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 100px;
+    margin: 80px;
+    a{
+        text-decoration: none;
+        color:black;
+        &:hover{
+        color: #696969;
+        transform:translateY(2px);
+        text-shadow: 0px 0px 0px #bdbdbd;
+        z-index: 3;
+    }
+    }
 `;
 
 
 const Header = styled.h1`
-    color: white;
+    color: black;
     font-size: 6vh;
-    text-shadow: 3px 3px 0px black;
+    text-shadow: 4px 4px 0px #7e7e7e;
     /* border-bottom: thin solid white; */
 `;
 
 const A = styled.a`
     text-decoration: none;
-    text-shadow: 3px 3px 0px black;
-    color: white;
-    font-size: 3.5vh;
+    text-shadow: 3px 3px 0px #bdbdbd;
+    color: black;
+    font-size: 4vh;
     &:hover{
-        color: white;
+        color: #696969;
         font-size: 3.5vh;
         transform:translateY(2px);
-        text-shadow: 0px 0px 0px black;
+        text-shadow: 0px 0px 0px #bdbdbd;
         z-index: 3;
     }
 `;
@@ -138,14 +150,50 @@ const Names = styled.div`
 `;
 
 const SignUpContainer = styled.div`
-margin-top:50px;
+    
+    margin: 0 auto;
+    margin-top:20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border:1px solid white;
+    justify-content:center;
+    background-color:#212121;
+    border:2px solid white;
     box-shadow: 3px 3px 0px black;
-    background-color: rgba(255,255,255,0.1);
-    border-radius: 150px;
-    width:  300px;
+    background-color: rgba(255,255,255,0.75);
+    border-radius: 50px;
+    width:  250px;
     height: 300px;
+    
 `
+
+const Users = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* flex-wrap:wrap; */
+   `
+    const UserBox = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* flex-wrap:wrap; */
+    margin:5px;
+    padding:5px;
+    border:1.5px solid white;
+    width: 15vh;
+    height:15vh;
+    border-radius: 10vh;
+    color: black;
+    background: #a8a8a8;
+    font-size: 4vh;
+    box-shadow: 3px 3px 0px #7e7e7e;
+    &:hover{
+        color: #696969;
+        transform:translateY(2px);
+        box-shadow: 1.5px 1.5px 0px #7e7e7e;
+        z-index: 3;
+    }
+`;

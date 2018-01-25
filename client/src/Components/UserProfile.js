@@ -131,4 +131,5 @@ const Profile = styled.div`
     font-size: 2.5vh;
     padding: 20px;
     text-decoration: none;
+    
 `

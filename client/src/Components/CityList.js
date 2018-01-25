@@ -34,14 +34,17 @@ export default CityList
 ///////////////////////////////////////////////////////////////////////////////////
 
 const Card = styled.div`
+
+    margin:0 auto;
   width: 100vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color:#212121;
+  /* background-color:#212121; */
   align-items: center;
   padding: 20px;
-  border: 1px solid lightgray;
+  text-shadow: 3px 3px 0px #bdbdbd;
+ 
 `
 
 const FlexContainerCentered = styled.div`

@@ -1,5 +1,6 @@
 // Importing React
 import React, { Component } from 'react'
+import styled from 'styled-components'
 import axios from 'axios'
 
 //Importing components
@@ -15,26 +16,26 @@ class cityPage extends Component {
     }
 
     async componentWillMount() {
-        const res = await axios.get('/api/city') 
+        const res = await axios.get('/api/city')
         this.setState({ cities: res.data })
     }
 
     createCity = async () => {
         const res = await axios.post(`/api/city`)
-        const newCity = res.data 
+        const newCity = res.data
 
-        const newCities = [...this.state.cities] 
-        newCities.unshift(newCity) 
-        this.setState({ cities: newCities }) 
+        const newCities = [...this.state.cities]
+        newCities.unshift(newCity)
+        this.setState({ cities: newCities })
     }
 
     deleteCity = async (city) => {
         try {
-            await axios.delete(`/api/city/${city._id}`) 
+            await axios.delete(`/api/city/${city._id}`)
 
             const indexToDelete = this.state.cities.indexOf(city)
-            const newCities = [...this.state.cities] 
-            newCities.splice(indexToDelete, 1) 
+            const newCities = [...this.state.cities]
+            newCities.splice(indexToDelete, 1)
 
             this.setState({ cities: newCities })
         } catch (error) {
@@ -42,9 +43,9 @@ class cityPage extends Component {
         }
     }
 
- 
+
     handleChange = (city, event) => {
-        const updatedCities = [...this.state.cities] 
+        const updatedCities = [...this.state.cities]
 
         const cityToUpdate = updatedCities.find((newCity) => {
             return newCity._id === city._id
@@ -58,7 +59,7 @@ class cityPage extends Component {
     updateCity = async (city) => {
         try {
 
-            await axios.patch(`/api/cities/${city._id}`, city) 
+            await axios.patch(`/api/cities/${city._id}`, city)
 
         } catch (error) {
             console.log(error)
@@ -67,7 +68,7 @@ class cityPage extends Component {
 
     render() {
         return (
-            <div>
+            <CityListAll>
 
                 <div>
                     <h1>List Of Cities</h1>
@@ -79,7 +80,7 @@ class cityPage extends Component {
                     updateCity={this.updateCity}
                     deleteCity={this.deleteCity} />
 
-            </div>
+            </CityListAll>
         )
     }
 }
@@ -90,3 +91,16 @@ export default cityPage
 ///////////////////////////////////////////////////////////////////////////////////
 //STYLED-COMPONENTS
 ///////////////////////////////////////////////////////////////////////////////////
+
+const CityListAll = styled.div`
+
+  margin:0 auto;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  /* background-color:#212121; */
+  align-items: center;
+  padding: 20px;
+  text-shadow: 4px 4px 0px #7e7e7e;
+`

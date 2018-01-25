@@ -43,11 +43,12 @@ export default City
 const CityWrapper = styled.div`
   display: flex;
   flex-direction: column;
-
+ border: 1px solid black;
   align-items: center;
   margin: 20px;
   padding: 20px;
   background-color: lightgrey;
+ box-shadow: 3px 3px 0px rgba(0,0,0,0.5);
   
   input {
     background-color: transparent;
