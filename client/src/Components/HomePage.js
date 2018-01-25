@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-import { media } from '../sharedFile.js'
+// import { media } from '../sharedFile.js'
 
 ///////////////////////////////////////////////////////////////////////////////////
 // CLASS
@@ -56,9 +56,9 @@ const Logo = styled.h1`
     margin-top: 300px;
     font-size: 8.5vh;
     padding: 20px;
-    ${media.medium`
+    /* ${media.medium`
     margin-top: 450px;
-  `}
+  `} */
 `
 
 const F = styled.a`
