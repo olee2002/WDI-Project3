@@ -8,7 +8,7 @@ import HomePage from './Components/HomePage'
 import UserPage from './Components/UserPage'
 import UserProfile from './Components/UserProfile'
 import CityPage from './Components/CityPage'
-import ArchPage from './Components/ArchPage'
+// import ArchPage from './Components/ArchPage'
 
 
 
@@ -25,7 +25,7 @@ class App extends Component {
               <Route exact path='/users' component={UserPage} />
               <Route exact path='/users/:userId' component={UserProfile} />
               <Route exact path='/city' component={CityPage} />
-              <Route exact path='/city/:cityId/arch' component={ArchPage} />
+              {/* <Route exact path='/city/:cityId/arch' component={ArchPage} /> */}
             </Switch>
 
           </div>

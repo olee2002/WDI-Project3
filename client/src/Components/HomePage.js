@@ -19,6 +19,7 @@ class HomePage extends Component {
                     </Logo>
                     <br/>
                     <br/>
+                 
                     <br/>
                     <div>
                     <C href='/users'> USERS </C>|
@@ -68,13 +69,13 @@ const F = styled.a`
 const Container = styled.div`
     width:100vw;
     height:100vh;
-    background: #212121;
+    background: linear-gradient(transparent,transparent,rgb(33,33,33)),rgba(33,33,33,0.01);
 `
 const B = styled.a`
 text-decoration: none;
 font-size: 3vh;
 color: white;
-text-shadow:4px 4px 8px #000000;
+text-shadow:4px 4px 4px #000000;
 z-index: auto;
 &:hover{
     color: white;
@@ -88,7 +89,7 @@ const C = styled.a`
 text-decoration: none;
 font-size: 3vh;
 color: white;
-text-shadow:4px 4px 8px #000000;
+text-shadow:4px 4px 4px #000000;
 z-index: auto;
 &:hover{
     color: white;
@@ -102,7 +103,7 @@ const D = styled.a`
 text-decoration: none;
 font-size: 3vh;
 color: white;
-text-shadow:4px 4px 8px #000000;
+text-shadow:4px 4px 4px #000000;
 z-index: auto;
 &:hover{
     color: white;
