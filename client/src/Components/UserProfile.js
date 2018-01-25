@@ -5,6 +5,8 @@ import axios from 'axios'
 import { Redirect } from 'react-router-dom'
 import styled from 'styled-components'
 
+//Importing components
+import UserEditForm from './UserEditForm'
 
 ///////////////////////////////////////////////////////////////////////////////////
 // CLASS
@@ -13,7 +15,7 @@ class UserProfile extends Component {
 
     state = {
         user: {},
-        redirect:false
+        redirect: false
     }
     componentWillMount() {
         this.getUserInfo()
@@ -30,12 +32,46 @@ class UserProfile extends Component {
         }
     }
     deleteUser = async () => {
-       
+
         const userId = this.props.match.params.userId
         const res = await axios.delete(`/api/users/${userId}`)
         console.log(res.data)
         this.setState({ user: res.data, redirect: true })
     }
+
+    handleChange = (event) => {
+        // console.log(event)
+        const attribute = event.target.name
+        const clonedUser = { ...this.state.user }
+        clonedUser[attribute] = event.target.value
+        this.setState({ user: clonedUser })
+    }
+
+    // custom method to have user's updated info sent back to the database. 
+    showUser = async () => {
+        const userId = this.props.match.params.userId
+        const res = await axios.get(`/api/users/${userId}`)
+        this.setState({ user: res.data })
+        console.log(res.data)
+    }
+    handleSubmit = async (e) => {
+
+        e.preventDefault()
+
+        const userId = this.props.match.params.userId
+        const clonedUser = { ...this.state.user }
+        const payload = {
+            userName: this.state.user.userName
+        }
+        const blankForm = {
+            userName: ''
+        }
+        const res = await axios.patch(`/api/users/${userId}`, payload)
+        await this.showUser()
+        this.setState({ user: res.data })
+    }
+
+
     render() {
         const { user } = this.state
         if (this.state.redirect) {
@@ -49,9 +85,7 @@ class UserProfile extends Component {
                     <a href='/city'> CITIES </a>|
                     <a href='/city/:cityId/arch'> ARCHITECTURE </a>
                 </div>
-                <br />
-                <br />
-                <br />
+
                 <br />
                 <div>
                     <h1>{user.userName}'s Profile</h1>
@@ -61,8 +95,16 @@ class UserProfile extends Component {
                 </div>
                 <div>
                     <h3>User Name: {user.userName}</h3>
-                    <button onClick={this.deleteUser}> Delete</button>|
-                    <button onClick={this.UpdateUser}> Edit</button>
+                    <button onClick={this.deleteUser}> Delete</button>
+                    
+                    <UserEditForm
+                        user={this.state.user}
+                        id={this.state.user._id}
+                        showUser={this.showUser}
+                        handleChange = {this.handleChange} 
+                        handleSubmit = {this.handleSubmit}
+                    />
+                   
                 </div>
             </Profile>
         )

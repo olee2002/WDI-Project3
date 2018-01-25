@@ -23,7 +23,7 @@ const UserAddForm = (props) => {
                         value={props.user.userName}
                         type="text"
                         placeholder="Name"
-                        onChange={props.handleChange}
+                        onChange={(e) => props.handleChange(e)}
                         name="userName"
                     />
                 </div>
