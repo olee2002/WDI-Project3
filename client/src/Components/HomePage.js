@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-import { media } from 'sharedFile.js'
+import { media } from '../sharedFile.js'
 
 ///////////////////////////////////////////////////////////////////////////////////
 // CLASS
