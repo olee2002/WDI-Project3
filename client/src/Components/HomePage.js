@@ -56,9 +56,7 @@ const Logo = styled.h1`
     margin-top: 300px;
     font-size: 8.5vh;
     padding: 20px;
-    /* ${media.medium`
-    margin-top: 450px;
-  `} */
+  
 `
 
 const F = styled.a`
