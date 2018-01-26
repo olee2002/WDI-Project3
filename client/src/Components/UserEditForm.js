@@ -11,24 +11,23 @@ const UserEditForm = (props)=>(
             
             <EditFormStyle>
 
-                <div>Edit User</div>
+               
                 <br />
                 <form onSubmit={props.handleSubmit}>
                     <div>
                         {/* <label htmlFor="userName">Username: </label> */}
-                        <input 
+                        <Input 
                         placeholder="UpdateName"
                         onChange={props.handleChange} 
                         name="userName" type="text" 
                         value={props.user.userName} />
                     </div>
-                    
                     <br />
                    
+                    <button>Edit Name</button>
+                    
                     <br />
-                    <div>
-                        <button>Save</button>
-                    </div>
+                    
                 </form>
                 <br />
             </EditFormStyle>
@@ -45,14 +44,15 @@ export default UserEditForm;
 const Input = styled.input`
 font-family: 'Montserrat', sans-serif;
 cursor: pointer;
-font-size: 15px;
-font-weight: 9px;
-color: black;
-border-radius: 3px;
-text-align: center;
-background-color: rgba(250, 233, 186, 0.2);
-padding: 5px;
-text-decoration: none;
+        display:flex;
+        margin-top:6px;
+        align-items: center;
+        border:1px solid darkgray;
+        width: 150px;
+        height: 30px;
+        border-radius: 3px;
+        box-shadow:1.25px 1.25px 0px black;
+   
 
 a {
     text-decoration: none;

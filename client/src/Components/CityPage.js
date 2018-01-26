@@ -115,12 +115,16 @@ const CityListAll = styled.div`
   align-items: center;
   color:white;
   padding: 20px;
-  text-shadow: 2.5px 2.5px 0px #545454;
+ a{ 
+  text-decoration: none;
+  color:white};
+  h1{
+  text-shadow: 2px 2px 0px #545454;}
   button{
       margin: 0 auto;
       height: 5vh;
-      border: 1px solid darkgray;
+      border: 1px solid white;
       border-radius:5px;
       font-family: 'Montserrat', sans-serif;
-      box-shadow: 1px 1px 0px #3f3f3f;
+      box-shadow: 1.5px 1.5px 0px #3f3f3f;}
 `

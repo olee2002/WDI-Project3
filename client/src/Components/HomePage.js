@@ -2,7 +2,9 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import FaBeer from 'react-icons/fa/beer'
+import FaFolderOpenO from 'react-icons/lib/fa/folder-open-o'
+import FaUser from 'react-icons/lib/fa/user'
+
 
 // import { media } from '../sharedFile.js'
 
@@ -14,21 +16,22 @@ class HomePage extends Component {
         return (
             <Container>
                 <Title>
+                   
+                    
                     <Logo>
                         <a className="color animated infinite pulse" href="/users">
                             MY ARCHITECTURE
                         </a>
                     </Logo>
-                    <br />
-                    <br />
+                    
+
+                    <Icons>
+                        <a href='/users'> <FaUser /> </a>--
+                        <a href='/city'> <FaFolderOpenO /> </a>
+
+                    </Icons>
 
 
-                    <div>
-                        <a href='/users'> <FaBeer /> </a>|
-                        <a href='/city'> CITIES </a>
-                        {/* <a href='/city/:cityId/arch'> ARCHITECTURE </a> */}
-                        {/* <a href='/city/:cityId/arch'> ARCHITECTURE </a> */}
-                    </div>
                 </Title>
             </Container>
         );
@@ -50,11 +53,17 @@ const Title = styled.div`
     z-index: 2;
     
 `
+const Icons = styled.div`
+font-size: 5vh;
+color: white;
+text-shadow:2px 2px 2px #000000;
+
+`
 
 const Logo = styled.h1`
     margin: 0 auto;
-    margin-top: 350px;
-    font-size: 6.5vh;
+    margin-top: 400px;
+    font-size: 5.75vh;
     padding: 20px;
   
 `

@@ -96,15 +96,15 @@ class UserProfile extends Component {
                 <div>
                     <h3>User Name: {user.userName}</h3>
                     <button onClick={this.deleteUser}> Delete</button>
-                    
+
                     <UserEditForm
                         user={this.state.user}
                         id={this.state.user._id}
                         showUser={this.showUser}
-                        handleChange = {this.handleChange} 
-                        handleSubmit = {this.handleSubmit}
+                        handleChange={this.handleChange}
+                        handleSubmit={this.handleSubmit}
                     />
-                   
+
                 </div>
             </Profile>
         )
@@ -123,12 +123,26 @@ const Profile = styled.div`
     display:flex;
     flex-direction: column;
     align-items: center;
-    color: white;
-    background-color: #212121;
+    color: black;
+    /* background-color: #212121; */
     margin: 0 auto;
     /* margin-top: 200px; */
     font-size: 2.5vh;
     padding: 20px;
     text-decoration: none;
-    
+    a{ 
+  text-decoration: none;
+  color:white;
+  
+};
+  h1{
+      color:white;
+  text-shadow: 2px 2px 0px #545454;}
+  button{
+      margin: 0 auto;
+      height: 5vh;
+      border: 1px solid white;
+      border-radius:5px;
+      font-family: 'Montserrat', sans-serif;
+      box-shadow: 1.5px 1.5px 0px #3f3f3f;}
 `

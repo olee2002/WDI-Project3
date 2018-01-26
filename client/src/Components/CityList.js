@@ -47,7 +47,7 @@ const Card = styled.div`
   /* background-color:#212121; */
   align-items: center;
   padding: 20px;
-  text-shadow: 3px 3px 0px #bdbdbd;
+  text-shadow: 1px 1px 0px #3f3f3f;
  
 `
 

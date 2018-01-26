@@ -173,6 +173,7 @@ const Users = styled.div`
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    flex-wrap:wrap;
     /* flex-wrap:wrap; */
    `
 const UserBox = styled.div`

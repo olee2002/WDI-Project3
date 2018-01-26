@@ -51,7 +51,7 @@ const CityWrapper = styled.div`
   width:30vh;
   display: flex;
   flex-direction: column;
-  border: 1px solid black;
+  border: 1px solid white;
   align-items: center;
   margin: 10px;
   padding: 20px;
@@ -69,12 +69,12 @@ const CityWrapper = styled.div`
     
   textarea {
     /* background-color: transparent; */
-    border-radius:5px;
+    border-radius:1em;
     padding:20px;
     margin: 10px;
     border: 1px;
     width:30vw;
     height: 150px;
     }
-  }
+
 `
