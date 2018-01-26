@@ -11,7 +11,6 @@ const City = (props) => {
         <CityWrapper>
             <div>
                 Enter City Name
-                {/* <img src={props.city.photoUrl} alt="City Pic" /> */}
             </div>
             <input type="text"
                 name="title"
@@ -26,10 +25,17 @@ const City = (props) => {
                 onChange={(event) => props.handleChange(props.city, event)}
                 onBlur={() => { props.updateCity(props.city) }} />
 
-            <button onClick={() => { props.deleteCity(props.city) }}>
-                X
-        </button>
-
+            <div>
+                <br />
+                <a href={`/city/${props.city._id}/arch`}>
+                    <button>
+                        Go To The Cities
+                        </button> </a>
+                <button
+                    onClick={() => { props.deleteCity(props.city) }}>
+                    X
+                </button>
+            </div>
         </CityWrapper>
     )
 }
@@ -41,30 +47,34 @@ export default City
 ///////////////////////////////////////////////////////////////////////////////////
 
 const CityWrapper = styled.div`
+  height:30vh;
+  width:30vh;
   display: flex;
   flex-direction: column;
- border: 1px solid black;
+  border: 1px solid black;
   align-items: center;
-  margin: 20px;
+  margin: 10px;
   padding: 20px;
-  background-color: lightgrey;
- box-shadow: 3px 3px 0px rgba(0,0,0,0.5);
-  
+  background-color: #696969;
+  box-shadow: 3px 3px 0px rgba(0,0,0,0.5);
   input {
-    background-color: transparent;
-    border: 1px;
-    margin-bottom: 10px;
+    background-color: white;
+    border:1px solid darkgray;
+    box-shadow: 1px 1px 0px #3f3f3f;
+    border-radius:5px;
     font-size: 20px;
+    margin: 10px;
+    height:4vh;
+    width:25vh;
     
-    &:focus {
-      outline: 1px;
-    }
-  }
-  
   textarea {
-    background-color: transparent;
-    border: none;
-    height: 100px;
+    /* background-color: transparent; */
+    border-radius:5px;
+    padding:20px;
+    margin: 10px;
+    border: 1px;
+    width:30vw;
+    height: 150px;
     }
   }
 `

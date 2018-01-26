@@ -19,19 +19,21 @@ const UserAddForm = (props) => {
             <form onSubmit={props.handleSubmit}>
                 <div>
                     <br />
+                    Name:
                     <input
                         value={props.user.userName}
                         type="text"
-                        placeholder="Name"
+                        // placeholder="Name"
                         onChange={(e) => props.handleChange(e)}
                         name="userName"
                     />
                 </div>
                 <div>
                     <br />
+                    Image URL
                     <input
                         value={props.user.photoUrl}
-                        placeholder="image url"
+                        // placeholder="image url"
                         onChange={(e) => props.handleChange(e)}
                         name="photoUrl"
                         type="text"
@@ -58,11 +60,12 @@ const AddUser = styled.div`
     margin: 0 auto;
     color: black;
     /* margin-top: 200px; */
-    font-size: 2.5vh;
-    padding: 15px;
+    font-size: 2vh;
+    padding: 0px;
     text-shadow: 3px 3px 0px #bdbdbd;
     input{
         display:flex;
+        margin-top:6px;
         align-items: center;
         border:none;
         width: 150px;
@@ -74,9 +77,10 @@ const AddUser = styled.div`
         border:none;
         height: 30px;
         width: 70px;
+        font-size: 2vh;
         margin-left: 40px;
         border-radius: 7px;
         box-shadow:1px 1px 0px black;
-        font-family: 'Architects Daughter';
+        font-family: 'Montserrat', sans-serif;
     }
 `

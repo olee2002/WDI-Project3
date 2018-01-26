@@ -27,13 +27,17 @@ City.remove({})
             photoUrl: 'http://www.fillmurray.com/300/300'
         })
 
-
+        const arch01 = new Arch({
+            name: 'arch01',
+            address: '456 street atlanta, ga',
+            photoUrl: 'http://www.fillmurray.com/300/300'
+        })
         const arch = new Arch({
             name: 'arch',
             address: '123 street atlanta, ga',
             photoUrl: 'http://www.fillmurray.com/300/300'
         })
-        atlanta.archtecture.push(arch)
+        atlanta.arch.push(arch,arch01)
 
         return atlanta.save()
 

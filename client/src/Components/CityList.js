@@ -4,6 +4,7 @@ import styled from 'styled-components'
 
 //Importing components
 import City from './City'
+import ArchPage from './ArchPage'
 
 ///////////////////////////////////////////////////////////////////////////////////
 // CLASS
@@ -16,8 +17,10 @@ const CityList = (props) => {
                     props.cities.map((city, i) => {
                         return (
                             <div>
-                                <City city={city} {...props} key={i} />
-                               
+
+                                 <City city={city} {...props} key={i} />
+                            
+                                <ArchPage cityId={city._id} />
                             </div>
                         )
                     })
@@ -35,11 +38,12 @@ export default CityList
 
 const Card = styled.div`
 
-    margin:0 auto;
+  margin:0 auto;
   width: 100vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
+  
   /* background-color:#212121; */
   align-items: center;
   padding: 20px;

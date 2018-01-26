@@ -56,8 +56,7 @@ class UserPage extends Component {
                 <Container>
                     <div>
                         <a href='/'> HOME </a>|
-                    <a href='/city'> CITIES </a>|
-                    <a href='/city/:cityId/arch'> ARCHITECTURE </a>
+                    <a href='/city'> CITIES </a>
                     </div>
                     <div>
                         <SignUpContainer>
@@ -72,17 +71,18 @@ class UserPage extends Component {
                                 deleteUser={this.deleteUser}
                             />
                         </SignUpContainer>
+                        </div>
                         <Header>Select A User</Header>
                         <Users>
-                        {this.state.users.map((user, i) => {
-                            return (
-                                <Names key={i}>
-                                    <A href={`/users/${user._id}`}><UserBox>{user.userName}</UserBox> </A>
-                                </Names>
-                            )
-                        })}
+                            {this.state.users.map((user, i) => {
+                                return (
+                                    <Names key={i}>
+                                        <A href={`/users/${user._id}`}><UserBox>{user.userName}</UserBox> </A>
+                                    </Names>
+                                )
+                            })}
                         </Users>
-                    </div>
+                    
                 </Container>
             </Body>
         );
@@ -124,9 +124,10 @@ const Container = styled.div`
 
 
 const Header = styled.h1`
-    color: black;
-    font-size: 6vh;
-    text-shadow: 4px 4px 0px #7e7e7e;
+    margin: 20 auto;
+    color: white;
+    font-size: 3vh;
+    text-shadow: 2.5px 2.5px 0px #3f3f3f;
     /* border-bottom: thin solid white; */
 `;
 
@@ -161,7 +162,7 @@ const SignUpContainer = styled.div`
     border:2px solid white;
     box-shadow: 3px 3px 0px black;
     background-color: rgba(255,255,255,0.75);
-    border-radius: 50px;
+    border-radius: 20px;
     width:  250px;
     height: 300px;
     
@@ -174,7 +175,7 @@ const Users = styled.div`
     align-items: center;
     /* flex-wrap:wrap; */
    `
-    const UserBox = styled.div`
+const UserBox = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -188,8 +189,8 @@ const Users = styled.div`
     border-radius: 10vh;
     color: black;
     background: #a8a8a8;
-    font-size: 4vh;
-    box-shadow: 3px 3px 0px #7e7e7e;
+    font-size: 3vh;
+    box-shadow: 3px 3px 0px #3f3f3f;
     &:hover{
         color: #696969;
         transform:translateY(2px);

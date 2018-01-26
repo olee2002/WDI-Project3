@@ -83,8 +83,7 @@ class UserProfile extends Component {
                 <div>
                     <a href='/'> HOME </a>|
                     <a href='/users'> USERS </a>|
-                    <a href='/city'> CITIES </a>|
-                    <a href='/city/:cityId/arch'> ARCHITECTURE </a>
+                    <a href='/city'> CITIES </a>
                 </div>
 
                 <br />

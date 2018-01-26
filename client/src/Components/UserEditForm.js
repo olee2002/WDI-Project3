@@ -43,7 +43,7 @@ export default UserEditForm;
 ///////////////////////////////////////////////////////////////////////////////////
 
 const Input = styled.input`
-font-family: "nunito", sans-serif;
+font-family: 'Montserrat', sans-serif;
 cursor: pointer;
 font-size: 15px;
 font-weight: 9px;
@@ -62,5 +62,5 @@ a {
 const EditFormStyle = styled.div`
 padding-top: 40px;
 text-align: center;
-font-family: "Oxygen", sans-serif;
+font-family: 'Montserrat', sans-serif;
 `

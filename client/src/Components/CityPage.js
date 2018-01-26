@@ -5,6 +5,7 @@ import axios from 'axios'
 
 //Importing components
 import CityList from './CityList'
+// import ArchPage from './ArchPage'
 
 ///////////////////////////////////////////////////////////////////////////////////
 // CLASS
@@ -27,6 +28,7 @@ class cityPage extends Component {
         const newCities = [...this.state.cities]
         newCities.unshift(newCity)
         this.setState({ cities: newCities })
+        console.log(this.state.cities)
     }
 
     deleteCity = async (city) => {
@@ -69,16 +71,24 @@ class cityPage extends Component {
     render() {
         return (
             <CityListAll>
-
                 <div>
-                    <h1>List Of Cities</h1>
-                    <div onClick={this.createCity}>Add New City</div>
+                    <a href='/'> HOME </a>|
+                    <a href='/user'> USERS </a>
+                </div>
+                <br />
+                <div>
+                    <h1>LIST OF CITIES</h1>
+                    <button onClick={this.createCity}>NEW CITY</button>
                 </div>
 
                 <CityList cities={this.state.cities}
                     handleChange={this.handleChange}
                     updateCity={this.updateCity}
                     deleteCity={this.deleteCity} />
+
+                {/* <CityPage
+                    
+                    /> */}
 
             </CityListAll>
         )
@@ -95,12 +105,22 @@ export default cityPage
 const CityListAll = styled.div`
 
   margin:0 auto;
+  margin-top:20px;
   width: 100vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   /* background-color:#212121; */
   align-items: center;
+  color:white;
   padding: 20px;
-  text-shadow: 4px 4px 0px #7e7e7e;
+  text-shadow: 2.5px 2.5px 0px #545454;
+  button{
+      margin: 0 auto;
+      height: 5vh;
+      border: 1px solid darkgray;
+      border-radius:5px;
+      font-family: 'Montserrat', sans-serif;
+      box-shadow: 1px 1px 0px #3f3f3f;
 `

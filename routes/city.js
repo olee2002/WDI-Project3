@@ -13,6 +13,19 @@ router.get('/', async (req, res) => {
   }
 })
 
+//Get a sigle city
+router.get('/:cityId', async (req, res) => {
+  try {
+      console.log(req.params.cityId)
+      //find byId
+      const city = await City.findById(req.params.cityId)
+      //  send json of a city
+      res.json(city)
+  } catch (err) {
+      res.send(err)
+  }
+})
+
 router.post('/', async (req, res) => {
   try {
     const newCity = await City.create({}) 

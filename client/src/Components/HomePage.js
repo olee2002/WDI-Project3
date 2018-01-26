@@ -2,6 +2,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import FaBeer from 'react-icons/fa/beer'
 
 // import { media } from '../sharedFile.js'
 
@@ -14,21 +15,19 @@ class HomePage extends Component {
             <Container>
                 <Title>
                     <Logo>
-                        <F class="color animated infinite pulse" href="/users">
-                            My Architecture
-                        </F>
+                        <a className="color animated infinite pulse" href="/users">
+                            MY ARCHITECTURE
+                        </a>
                     </Logo>
                     <br />
                     <br />
 
-                    
+
                     <div>
-                        <C href='/users'> USERS </C>|
-                    <B href='/city'> CITIES </B>|
-                    <D href='/city/:cityId/arch'> ARCHITECTURE </D>
-
-
-
+                        <a href='/users'> <FaBeer /> </a>|
+                        <a href='/city'> CITIES </a>
+                        {/* <a href='/city/:cityId/arch'> ARCHITECTURE </a> */}
+                        {/* <a href='/city/:cityId/arch'> ARCHITECTURE </a> */}
                     </div>
                 </Title>
             </Container>
@@ -47,19 +46,20 @@ const Title = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-size: 2.5vh;
     z-index: 2;
     
 `
 
 const Logo = styled.h1`
     margin: 0 auto;
-    margin-top: 300px;
-    font-size: 8.5vh;
+    margin-top: 350px;
+    font-size: 6.5vh;
     padding: 20px;
   
 `
 
-const F = styled.a`
+const ArchTitle = styled.a`
     text-decoration: none;
     color: white;
     text-shadow:4px 4px 8px #000000;
@@ -74,48 +74,15 @@ const Container = styled.div`
     width:100vw;
     height:100vh;
     background: linear-gradient(transparent,transparent,rgb(33,33,33)),rgba(33,33,33,0.01);
-`
-const B = styled.a`
-text-decoration: none;
-font-size: 3vh;
-color: white;
-text-shadow:4px 4px 4px #000000;
-z-index: auto;
-&:hover{
-    color: #A8A8A8;
-    transform:translateY(2px);
-    font-size: 3vh;
-    text-shadow: 0px 0px 0px black;
-    z-index: 3;
-}
-`
-
-const C = styled.a`
-text-decoration: none;
-font-size: 3vh;
-color: white;
-text-shadow:4px 4px 4px #000000;
-z-index: auto;
-&:hover{
-    color: #A8A8A8;
-    font-size: 3vh;
-    transform:translateY(2px);
-    text-shadow: 0px 0px 0px black;
-    z-index: 3;
-}
-`
-
-const D = styled.a`
-text-decoration: none;
-font-size: 3vh;
-color: white;
-text-shadow:4px 4px 4px #000000;
-z-index: auto;
-&:hover{
-    color: #A8A8A8;
-    font-size: 3vh;
-    transform:translateY(2px);
-    text-shadow: 0px 0px 0px black;
-    z-index: 3;
-}
+    a{
+        text-decoration: none;
+    color: white;
+    text-shadow:4px 4px 8px #000000;
+    z-index: auto;
+    &:hover {
+        color: #7e7e7e;
+        text-shadow: none;
+        text-shadow:2px 2px 2px #000000;
+    }
+    }
 `

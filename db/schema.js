@@ -5,43 +5,35 @@ mongoose.Promise = global.Promise
 
 const ArchSchema = new Schema(
     {
-        name: {
-            type: String,
-           
-        },
+        name: String,
+        type: String,
         address: String,
-        photoUrl:String,
+        photoUrl: String,
     },
     {
         timestamps: {},
         usePushEach: true
     }
- 
+
 )
 
 const CitySchema = new Schema(
     {
-        name:{
-            type: String,
-           
-        },
+        name: String,
         location: String,
-        photoUrl: String,    
-        archtecture: [ArchSchema]
+        photoUrl: String,
+        arch: [ArchSchema]
     },
     {
         timestamps: {},
         usePushEach: true
     }
 )
-    
+
 
 const UserSchema = new Schema(
     {
-        userName:{
-            type: String,
-            required: true,
-        },
+        userName:String,
         email: String,
         lastName: String,
         photoUrl: String,
