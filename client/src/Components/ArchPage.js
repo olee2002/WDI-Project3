@@ -14,11 +14,9 @@ class ArchPage extends Component {
     state = {
         arches: []
     }
-
     componentWillMount() {
         this.getArchInfo()
     }
-
     getArchInfo = async () => {
         try {
             const { cityId } = this.props.match.params
@@ -51,13 +49,10 @@ class ArchPage extends Component {
                             <div>
                                 {arch.name}
                             </div>
-
                             <div>
                                 {arch.address}
                             </div>
-
                         </div>
-
                     )
                 })
                 }
