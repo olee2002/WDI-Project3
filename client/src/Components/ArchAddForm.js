@@ -22,4 +22,4 @@ render(){
 
 }
 
-export default ArchPage
+export default ArchAddForm
