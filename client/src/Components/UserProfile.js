@@ -130,6 +130,11 @@ const Profile = styled.div`
     font-size: 2.5vh;
     padding: 20px;
     text-decoration: none;
+    
+        img {
+    object-fit: cover;
+}
+   
     a{ 
   text-decoration: none;
   color:white;
