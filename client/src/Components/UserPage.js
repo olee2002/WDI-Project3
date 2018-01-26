@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 // import { Link } from 'react-router-dom'
 import axios from 'axios'
 import styled from 'styled-components'
+import Overdrive from 'react-overdrive'
 
 //Importing components
 import UserAddForm from './UserAddForm'
@@ -71,18 +72,25 @@ class UserPage extends Component {
                                 deleteUser={this.deleteUser}
                             />
                         </SignUpContainer>
-                        </div>
-                        <Header>Select A User</Header>
-                        <Users>
-                            {this.state.users.map((user, i) => {
-                                return (
-                                    <Names key={i}>
-                                        <A href={`/users/${user._id}`}><UserBox>{user.userName}</UserBox> </A>
-                                    </Names>
-                                )
-                            })}
-                        </Users>
-                    
+                    </div>
+                    <Header>Select A User</Header>
+                    <Users>
+                        {this.state.users.map((user, i) => {
+                            return (
+                                <Names key={i}>
+                                    <A href={`/users/${user._id}`}>
+                                        <UserBox>
+                                            <Overdrive id="user">
+                                                {user.userName}
+                                            </Overdrive>
+                                        </UserBox>
+                                    </A>
+                                </Names>
+                            )
+                        }
+                        )}
+                    </Users>
+
                 </Container>
             </Body>
         );

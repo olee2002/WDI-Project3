@@ -5,6 +5,7 @@ import axios from 'axios'
 import { Redirect } from 'react-router-dom'
 import styled from 'styled-components'
 import FaTrash from 'react-icons/lib/fa/trash'
+import Overdrive from 'react-overdrive'
 
 //Importing components
 import UserEditForm from './UserEditForm'
@@ -92,21 +93,23 @@ class UserProfile extends Component {
                     <h1>{user.userName}'s Profile</h1>
                 </div>
                 <div>
-                    <img src={user.photoUrl} alt="Profile Pic" />
+                    <Overdrive id="user">
+                        <img src={user.photoUrl} alt="Profile Pic" />
+                    </Overdrive>
                 </div>
-                
-                    <h3>User Name: {user.userName}</h3>
-                    <h1 onClick={this.deleteUser}> <FaTrash/></h1>
 
-                    <UserEditForm
-                        user={this.state.user}
-                        id={this.state.user._id}
-                        // showUser={this.showUser}
-                        handleChange={this.handleChange}
-                        handleSubmit={this.handleSubmit}
-                    />
+                <h3>User Name: {user.userName}</h3>
+                <h1 onClick={this.deleteUser}> <FaTrash /></h1>
 
-                
+                <UserEditForm
+                    user={this.state.user}
+                    id={this.state.user._id}
+                    // showUser={this.showUser}
+                    handleChange={this.handleChange}
+                    handleSubmit={this.handleSubmit}
+                />
+
+
             </Profile>
         )
     }
