@@ -45,12 +45,13 @@ const Input = styled.input`
 font-family: 'Montserrat', sans-serif;
 cursor: pointer;
         display:flex;
-        margin-top:6px;
+        /* margin-top:6px; */
         align-items: center;
         border:1px solid darkgray;
-        width: 150px;
+        width: 20vh;
         height: 30px;
         border-radius: 3px;
+        background: #ededed;
         box-shadow:1.25px 1.25px 0px black;
    
 
@@ -60,7 +61,7 @@ a {
 }`
 
 const EditFormStyle = styled.div`
-padding-top: 40px;
+padding-top: 15px;
 text-align: center;
 font-family: 'Montserrat', sans-serif;
 `

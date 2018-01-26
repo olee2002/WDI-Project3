@@ -4,6 +4,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { Redirect } from 'react-router-dom'
 import styled from 'styled-components'
+import FaTrash from 'react-icons/lib/fa/trash'
 
 //Importing components
 import UserEditForm from './UserEditForm'
@@ -93,9 +94,9 @@ class UserProfile extends Component {
                 <div>
                     <img src={user.photoUrl} alt="Profile Pic" />
                 </div>
-                <div>
+                
                     <h3>User Name: {user.userName}</h3>
-                    <button onClick={this.deleteUser}> Delete</button>
+                    <h1 onClick={this.deleteUser}> <FaTrash/></h1>
 
                     <UserEditForm
                         user={this.state.user}
@@ -105,7 +106,7 @@ class UserProfile extends Component {
                         handleSubmit={this.handleSubmit}
                     />
 
-                </div>
+                
             </Profile>
         )
     }
@@ -127,12 +128,18 @@ const Profile = styled.div`
     /* background-color: #212121; */
     margin: 0 auto;
     /* margin-top: 200px; */
-    font-size: 2.5vh;
+    font-size: 2vh;
+    color: white;
     padding: 20px;
     text-decoration: none;
     
         img {
-    object-fit: cover;
+            width: 30vh;
+            height: 30vh;
+            border-radius:15px;
+            object-fit: cover;
+            border:1px solid white;
+            box-shadow: 3px 3px 0px #3f3f3f;
 }
    
     a{ 
@@ -141,12 +148,14 @@ const Profile = styled.div`
   
 };
   h1{
+      font-size: 3vh;
       color:white;
   text-shadow: 2px 2px 0px #545454;}
   button{
       margin: 0 auto;
+      width: 20vh;
       height: 5vh;
-      border: 1px solid white;
+      border: 1px solid #bdbdbd;
       border-radius:5px;
       font-family: 'Montserrat', sans-serif;
       box-shadow: 1.5px 1.5px 0px #3f3f3f;}

@@ -31,17 +31,13 @@ class ArchPage extends Component {
         console.log(arches)
         return (
             <div> 
-             {/* <div>
-                    <a href='/'> HOME </a>|
-                    <a href='/users'> USERS </a>|
-                    <a href='/city'> CITIES </a>
-                </div> */}
-                {/* {arches.map((arch, i) => {
+             
+                {arches.map((arch, i) => {
                     return (<div key={i}>
                        {arch}
                     </div>)
                 })
-                } */}
+                }
             </div>
         )
     }
