@@ -49,12 +49,12 @@ class UserProfile extends Component {
     }
 
     // custom method to have user's updated info sent back to the database. 
-    showUser = async () => {
-        const userId = this.props.match.params.userId
-        const res = await axios.get(`/api/users/${userId}`)
-        this.setState({ user: res.data })
-        console.log(res.data)
-    }
+    // showUser = async () => {
+    //     const userId = this.props.match.params.userId
+    //     const res = await axios.get(`/api/users/${userId}`)
+    //     this.setState({ user: res.data })
+    //     console.log(res.data)
+    // }
     handleSubmit = async (e) => {
 
         e.preventDefault()
@@ -67,7 +67,7 @@ class UserProfile extends Component {
             userName: ''
         }
         const res = await axios.patch(`/api/users/${userId}`, payload)
-        await this.showUser()
+        // await this.showUser()
         this.setState({ user: res.data })
     }
 
@@ -101,7 +101,7 @@ class UserProfile extends Component {
                     <UserEditForm
                         user={this.state.user}
                         id={this.state.user._id}
-                        showUser={this.showUser}
+                        // showUser={this.showUser}
                         handleChange={this.handleChange}
                         handleSubmit={this.handleSubmit}
                     />

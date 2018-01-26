@@ -30,8 +30,7 @@ class ArchPage extends Component {
         const { arches } = this.state
         console.log(arches)
         return (
-            <div> 
-             
+            <div>            
                 {arches.map((arch, i) => {
                     return (<div key={i}>
                        {arch}
