@@ -11,7 +11,6 @@ const UserEditForm = (props)=>(
             
             <EditFormStyle>
 
-               
                 <br />
                 <form onSubmit={props.handleSubmit}>
                     <div>
@@ -23,7 +22,6 @@ const UserEditForm = (props)=>(
                         value={props.user.userName} />
                     </div>
                     <br />
-                   
                     <button>Edit Name</button>
                     
                     <br />

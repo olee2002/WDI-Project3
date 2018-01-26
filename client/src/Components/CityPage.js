@@ -73,23 +73,23 @@ class cityPage extends Component {
             <CityListAll>
                 <div>
                     <a href='/'> HOME </a>|
-                    <a href='/user'> USERS </a>
+                    <a href='/users'> USERS </a>
                 </div>
                 <br />
                 <div>
                     <h1>LIST OF CITIES</h1>
                     <button onClick={this.createCity}>NEW CITY</button>
                 </div>
-
-                <CityList cities={this.state.cities}
+               
+                <CityList 
+                    cities={this.state.cities}
                     handleChange={this.handleChange}
                     updateCity={this.updateCity}
-                    deleteCity={this.deleteCity} />
-
-                {/* <CityPage
+                    deleteCity={this.deleteCity} 
+                    {...this.props}
+                    />
                     
-                    /> */}
-
+ 
             </CityListAll>
         )
     }

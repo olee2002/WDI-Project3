@@ -10,17 +10,19 @@ import ArchPage from './ArchPage'
 // CLASS
 ///////////////////////////////////////////////////////////////////////////////////
 const CityList = (props) => {
+    console.log('Props from CityLIst:'+props)
     return (
         <Card>
             <FlexRowCentered>
                 {
                     props.cities.map((city, i) => {
+
+                        console.log(city)
                         return (
                             <div>
 
-                                 <City city={city} {...props} key={i} />
-                            
-                                <ArchPage cityId={city._id} />
+                                <City city={city} {...props} key={i} />
+                               
                             </div>
                         )
                     })
@@ -35,6 +37,8 @@ export default CityList
 ///////////////////////////////////////////////////////////////////////////////////
 //STYLED-COMPONENTS
 ///////////////////////////////////////////////////////////////////////////////////
+
+
 
 const Card = styled.div`
 

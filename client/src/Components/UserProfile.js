@@ -93,13 +93,15 @@ class UserProfile extends Component {
                     <h1>{user.userName}'s Profile</h1>
                 </div>
                 <div>
-                    <Overdrive id="user">
+                    <Overdrive id={user._id}>
                         <img src={user.photoUrl} alt="Profile Pic" />
                     </Overdrive>
                 </div>
 
                 <h3>User Name: {user.userName}</h3>
-                <h1 onClick={this.deleteUser}> <FaTrash /></h1>
+                <h1 onClick={this.deleteUser}>
+                    <FaTrash />
+                </h1>
 
                 <UserEditForm
                     user={this.state.user}

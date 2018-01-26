@@ -74,23 +74,24 @@ class UserPage extends Component {
                         </SignUpContainer>
                     </div>
                     <Header>Select A User</Header>
+                    
                     <Users>
                         {this.state.users.map((user, i) => {
                             return (
+                                <Overdrive id={user._id}>
                                 <Names key={i}>
                                     <A href={`/users/${user._id}`}>
-                                        <UserBox>
-                                            <Overdrive id="user">
-                                                {user.userName}
-                                            </Overdrive>
-                                        </UserBox>
+                                            <UserBox>
+                                                <img src={user.photoUrl} />
+                                            </UserBox>
                                     </A>
                                 </Names>
+                                </Overdrive>
                             )
                         }
                         )}
                     </Users>
-
+                    
                 </Container>
             </Body>
         );
@@ -182,7 +183,7 @@ const Users = styled.div`
     justify-content: center;
     align-items: center;
     flex-wrap:wrap;
-    /* flex-wrap:wrap; */
+
    `
 const UserBox = styled.div`
     display: flex;
@@ -195,6 +196,11 @@ const UserBox = styled.div`
     border:1.5px solid white;
     width: 15vh;
     height:15vh;
+    img {
+        width: 15vh;
+    height:15vh;
+    border-radius: 8vh;
+    }
     border-radius: 10vh;
     color: black;
     background: #a8a8a8;
