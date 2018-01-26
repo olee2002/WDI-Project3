@@ -9,7 +9,7 @@ import UserPage from './Components/UserPage'
 import UserProfile from './Components/UserProfile'
 import CityPage from './Components/CityPage'
 import ArchPage from './Components/ArchPage'
-import ArchEditForm from './Components/ArchEditForm'
+import ArchAddForm from './Components/ArchAddForm'
 
 
 
@@ -27,7 +27,7 @@ class App extends Component {
               <Route exact path='/users/:userId' component={UserProfile} />
               <Route exact path='/city' component={CityPage} />
               <Route exact path='/city/:cityId/arch' component={ArchPage} />
-              <Route exact path='/city/:cityId/arch/:archId' component={ArchEditForm} />
+              <Route exact path='/city/:cityId/arch/:archId' component={ArchAddForm} />
             </Switch>
 
           </div>
