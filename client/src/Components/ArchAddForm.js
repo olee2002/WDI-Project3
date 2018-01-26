@@ -21,3 +21,5 @@ render(){
 }
 
 }
+
+export default ArchPage
