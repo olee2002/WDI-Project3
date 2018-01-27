@@ -9,23 +9,25 @@ import styled from 'styled-components'
 // STATELESS FUNCTION
 ///////////////////////////////////////////////////////////////////////////////////
 const ArchAddForm = (props) => {
-
+   
     //after the post is done, redirect to the arch profile page
-    if (props.redirect) {
-        return (<Redirect to={`/arch/${props.id}`} />)
-    }
+    // if (props.redirect) {
+    //     return (<Redirect to={`/city/${props.id}/arch/`} />)
+    // }
     return (
         <AddArch>
             <h2>Add arch</h2>
-            <form onSubmit={props.handleSubmit}>
+            <form 
+            onSubmit={props.handleSubmit}
+            >
                 <div>
                     <br />
                     Name:
                     <input
                         value={props.arch.name}
                         type="text"
-                        // placeholder="Name"
-                        onChange={(e) => props.handleChange(e)}
+                        placeholder="Name"
+                        onChange={props.handleChange}
                         name="name"
                     />
                 </div>
@@ -34,8 +36,8 @@ const ArchAddForm = (props) => {
                     Image URL
                     <input
                         value={props.arch.photoUrl}
-                        // placeholder="image url"
-                        onChange={(e) => props.handleChange(e)}
+                        placeholder="image url"
+                        onChange={props.handleChange}
                         name="photoUrl"
                         type="text"
                     />

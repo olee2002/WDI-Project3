@@ -1,6 +1,6 @@
 // Importing React
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import FaFolderOpenO from 'react-icons/lib/fa/folder-open-o'
 import FaUser from 'react-icons/lib/fa/user'

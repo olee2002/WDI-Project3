@@ -17,27 +17,29 @@ router.get('/', async (req, res) => {
     }
 })
 
-// router.post('/', async (req, res) => {
-//     try {
-//         const newarch = new archModel(req.body.arch)
-//         const city = await City.findById(req.params.cityId)
-//         city.arch.push(newarch)
-//         const saved = await city.save()
-//         res.json(saved)
-//     } catch (err) {
-//         res.send(err)
-//     }
-// })
+router.post('/', async (req, res) => {
+    try {
+        const newArch = new aArch(req.body.arch)
+        console.log('newArchPostRoute:'+req.body.arch)
+        const city = await City.findById(req.params.cityId)
+        city.arch.push(newArch)
+        const postArch = await City.save()
+        console.log('FromArchPostRoute:'+postArch)
+        res.json(postArch)
+    } catch (err) {
+        res.send(err)
+    }
+})
 
-// router.delete('/:archId', async (req, res) => {
-//     try {
-//         const city = await City.findById(req.params.cityId)
-//         city.arch.id(req.params.archId).remove()
-//         const saved = await city.save()
-//         res.json(saved)
-//     } catch (err) {
-//         res.send(err)
-//     }
-// })
+router.delete('/:archId', async (req, res) => {
+    try {
+        const city = await City.findById(req.params.cityId)
+        city.arch.id(req.params.archId).remove()
+        const saved = await city.save()
+        res.json(saved)
+    } catch (err) {
+        res.send(err)
+    }
+})
 
 module.exports = router;

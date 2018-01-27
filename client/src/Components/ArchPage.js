@@ -12,7 +12,10 @@ import ArchAddForm from './ArchAddForm'
 class ArchPage extends Component {
 
     state = {
-        arches: []
+        arches: [],
+        newArch: {},
+        redirect: false,
+        newId: ''
     }
     componentWillMount() {
         this.getArchInfo()
@@ -27,18 +30,63 @@ class ArchPage extends Component {
             console.log(err)
         }
     }
+    //input data
+    handleChange = (e) => {
+        console.log('CArchPostHandle1:' + this.state.arches)
+        console.log('CArchPost:' + this.state.newArch)
+        const newArch = { ...this.state.newArch }
+        newArch[e.target.name] = e.target.value
+        console.log('CArchPostHandle:' + JSON.stringify(newArch))
+        this.setState({ newArch })
+        console.log('CArchPostRESULT:' + JSON.stringify(newArch))
+    }
+
+    //create arch
+    handleSubmit = async (e) => {
+        e.preventDefault()
+ 
+        const { cityId } = this.props.match.params
+        const arch = this.state.newArch
+        const payload = {
+            userName: this.state.newArch.name,
+            photoUrl: this.state.newArch.photoUrl
+        }
+        const blankForm = {
+            userName: '',
+            photoUrl: '',
+        }
+        const res = await axios.post(`/api/city/${cityId}/arch/`, payload)
+        console.log('ThisFromAxios:'+JSON.stringify(res.data))
+        this.setState({ redirect: true, newArch: blankForm, newId:res.data._id })
+        console.log('That:'+JSON.stringify(this.state.newArch))
+    }
+
+
+
+
+
+
 
     render() {
         const { arches } = this.state
+       
         console.log(arches)
         return (<Container>
             <div>
                 <a href='/'> HOME </a>|
-                <a href='/users'> USERS </a>|
-                <a href='/city'> Cities </a>
+                <a href='/city'> CITIES</a>|
+                <a href={`/city/${this.props.match.params.cityId}/arch`}> ARCH </a>
             </div>
 
-            <ArchAddForm />
+            <ArchAddForm
+                arches={this.state.arches}
+                arch={this.state.newArch}
+                id={this.state.newId}
+                cityId={this.props.match.params.cityId}
+                redirect={this.state.redirect}
+                handleChange={this.handleChange}
+                handleSubmit={this.handleSubmit}
+            />
 
             <ArchBox>
 

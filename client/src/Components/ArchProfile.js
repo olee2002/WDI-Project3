@@ -12,7 +12,7 @@ render(){
       
     return (
 <div>
-
+Welcome to arch profile
 
 </div>
 

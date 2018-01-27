@@ -17,7 +17,7 @@ const CityList = (props) => {
                 {
                     props.cities.map((city, i) => {
 
-                        console.log(city)
+                        // console.log(city)
                         return (
                             <div>
 
