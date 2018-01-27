@@ -34,7 +34,8 @@ class ArchPage extends Component {
         return (<Container>
             <div>
                 <a href='/'> HOME </a>|
-                <a href='/users'> USERS </a>
+                <a href='/users'> USERS </a>|
+                <a href='/city'> Cities </a>
             </div>
 
             <ArchAddForm />
