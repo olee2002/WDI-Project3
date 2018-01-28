@@ -17,14 +17,24 @@ router.get('/', async (req, res) => {
     }
 })
 
+router.get('/:archId', async (req, res) => {
+
+    const city = await City.findById(req.params.cityId)
+    console.log('FromGetRoute'+city)
+    const arch = city.arch.id(req.params.archId)
+    res.json(arch)
+    res.sendStatus(200)
+})
+    
+
 router.post('/', async (req, res) => {
     try {
         const newArch = new Arch(req.body)
-        console.log('newArchPostRoute:'+JSON.stringify(req.body))
+        console.log('newArchPostRoute:' + JSON.stringify(req.body))
         const city = await City.findById(req.params.cityId)
-       
+
         city.arch.push(newArch)
-        console.log('AfterArchPost:'+JSON.stringify(city.arch))
+        console.log('AfterArchPost:' + JSON.stringify(city.arch))
         const postArch = await city.save()
 
         res.json(postArch)

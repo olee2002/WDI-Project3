@@ -34,12 +34,18 @@ class ArchProfile extends Component {
 
         return (
             <div>
+                 <div>
+                <a href='/'> HOME </a>|
+                <a href='/users'> USERS</a>|
+                <a href='/city'> CITIES</a>|
+                <a href={`/city/${this.props.match.params.cityId}/arch`}> ARCH </a>
+            </div>
                 <div>
-                    Welcome to arch profile
+                    Architecture profile
                 </div>
 
                 <div>
-                    <img src='{arch.photoUrl}' />
+                    <img src={arch.photoUrl} />
                     {arch.name}
                     {arch.address}
 
