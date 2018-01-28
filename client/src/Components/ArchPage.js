@@ -88,19 +88,15 @@ class ArchPage extends Component {
                 {arches.map((arch, i) => {
 
                     return (
-                        <div key={i}>
+                        <ThisArch key={i}>
                          <a href ={`/city/${this.props.match.params.cityId}/arch/${arch._id}`}> 
                          <img src={arch.photoUrl} />
-                            </a><br />
+                            </a>
                             <div>
                                 {arch.name}
                             </div>
-                            <div>
-                                {arch.address}
-
-                            </div>
                            
-                        </div>
+                        </ThisArch>
                     )
                 })
                 }
@@ -118,11 +114,16 @@ export default ArchPage
 ///////////////////////////////////////////////////////////////////////////////////
 //STYLED-COMPONENTS
 ///////////////////////////////////////////////////////////////////////////////////
-
+const Container = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+`
 const ArchBox = styled.div`
 margin-top: 20px;
 display: flex;
-flex-direction: column;
+flex-direction: row;
 align-items: center;
 justify-content: center;
 color: white;
@@ -136,10 +137,9 @@ img{
     border: 1px solid white;
     box-shadow: 3px 3px black;
     }
-
 `
 
-const Container = styled.div`
+const ThisArch = styled.div`
 display: flex;
 flex-direction: column;
 align-items: center;
