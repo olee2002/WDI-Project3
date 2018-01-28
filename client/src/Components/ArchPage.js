@@ -56,13 +56,13 @@ class ArchPage extends Component {
         const res = await axios.post(`/api/city/${cityId}/arch/`, payload)
         // console.log('ThisFromAxios:'+JSON.stringify(res.data))
         this.setState({ redirect: true, newArch: payload })
-        // console.log('That:'+JSON.stringify(this.state.newArch))
-
+        console.log('That:'+JSON.stringify(this.state.newArch))
+       const reload = await window.location.reload()
     }
-
 
     render() {
         const { arches } = this.state
+        console.log('ArchID:'+JSON.stringify(this.state.newArch))
 
         // console.log(arches)
         return (<Container>

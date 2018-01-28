@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
+import { Redirect } from 'react-router-dom'
 import FaTrash from 'react-icons/lib/fa/trash'
 
 
@@ -35,6 +36,10 @@ class ArchProfile extends Component {
     render() {
         const { arch } = this.state
         const { cityId } = this.props.match.params
+        if (this.state.redirect) {
+            return (<Redirect to={`/city/${cityId}/arch`} />)
+        }
+        
         return (
             <ArchContainer>
                 <div>
