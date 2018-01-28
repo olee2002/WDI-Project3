@@ -69,8 +69,8 @@ class ArchPage extends Component {
             <div>
                 <a href='/'> HOME </a>|
                 <a href='/users'> USERS</a>|
-                <a href='/city'> CITIES</a>|
-                <a href={`/city/${this.props.match.params.cityId}/arch`}> ARCH </a>
+                <a href='/city'> CITIES</a>
+              
             </div>
 
             <ArchAddForm
