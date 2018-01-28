@@ -13,8 +13,8 @@ const City = (props) => {
                 Enter City Name
             </div>
             <input type="text"
-                name="title"
-                value={props.city.title}
+                name="name"
+                value={props.city.name}
                 onChange={(event) => props.handleChange(props.city, event)}
                 onBlur={() => { props.updateCity(props.city) }} />
             <div>
@@ -29,7 +29,7 @@ const City = (props) => {
                 <br />
                 <a href={`/city/${props.city._id}/arch`}>
                     <button>
-                        Go To The Cities
+                        Architecture
                         </button> </a>
                 <button
                     onClick={() => { props.deleteCity(props.city) }}>

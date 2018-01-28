@@ -22,6 +22,7 @@ const CitySchema = new Schema(
         name: String,
         location: String,
         photoUrl: String,
+        description: String,
         arch: [ArchSchema]
     },
     {

@@ -33,6 +33,7 @@ class UserProfile extends Component {
             console.log(err)
         }
     }
+    //delete users
     deleteUser = async () => {
 
         const userId = this.props.match.params.userId
@@ -40,7 +41,7 @@ class UserProfile extends Component {
         console.log(res.data)
         this.setState({ user: res.data, redirect: true })
     }
-
+//edit users
     handleChange = (event) => {
         // console.log(event)
         const attribute = event.target.name
@@ -48,7 +49,7 @@ class UserProfile extends Component {
         clonedUser[attribute] = event.target.value
         this.setState({ user: clonedUser })
     }
-
+//update users
     handleSubmit = async (e) => {
 
         e.preventDefault()

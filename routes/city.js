@@ -48,11 +48,9 @@ router.delete('/:cityId', async (req, res) => {
 
 router.patch('/:cityId', async (req, res) => {
   try {
-
-    
     const updatedCity =
       await City.findByIdAndUpdate(req.params.cityId, req.body, {new: true})
-
+  console.log('FromCityPatch:'+req.body)
     res.json(updatedCity) 
   } catch (error) {
     console.log(error)

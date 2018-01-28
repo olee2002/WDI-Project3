@@ -10,7 +10,7 @@ import ArchPage from './ArchPage'
 // CLASS
 ///////////////////////////////////////////////////////////////////////////////////
 const CityList = (props) => {
-    console.log('Props from CityLIst:'+props)
+    // console.log('Props from CityLIst:'+JSON.stringify(props))
     return (
         <Card>
             <FlexRowCentered>

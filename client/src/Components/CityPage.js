@@ -45,24 +45,24 @@ class cityPage extends Component {
         }
     }
 
-
     handleChange = (city, event) => {
         const updatedCities = [...this.state.cities]
-
         const cityToUpdate = updatedCities.find((newCity) => {
             return newCity._id === city._id
         })
 
         cityToUpdate[event.target.name] = event.target.value
-
         this.setState({ cities: updatedCities })
     }
 
     updateCity = async (city) => {
+       
+        console.log('Updated:'+JSON.stringify(city))
+        console.log('UpdatedId:'+JSON.stringify(city._id))
         try {
-
-            await axios.patch(`/api/cities/${city._id}`, city)
-
+           const res = await axios.patch(`/api/city/${city._id}`, city)
+           console.log(res.data)
+    
         } catch (error) {
             console.log(error)
         }
