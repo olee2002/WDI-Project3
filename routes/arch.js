@@ -20,14 +20,15 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
     try {
         const newArch = new Arch(req.body)
-        // console.log('newArchPostRoute:'+JSON.stringify(req.body))
+        console.log('newArchPostRoute:'+JSON.stringify(req.body))
         const city = await City.findById(req.params.cityId)
-        // console.log('FromArchPostRoute:'+JSON.stringify(city))
+       
         city.arch.push(newArch)
-        
+        console.log('AfterArchPost:'+JSON.stringify(city.arch))
         const postArch = await city.save()
-        
+
         res.json(postArch)
+
     } catch (err) {
         res.send(err)
     }
@@ -36,10 +37,11 @@ router.post('/', async (req, res) => {
 router.delete('/:archId', async (req, res) => {
     try {
         const city = await City.findById(req.params.cityId)
-        console.log('BeforeDelete'+JSON.stringify(city))
+        console.log('BeforeDelete' + JSON.stringify(city))
         city.arch.id(req.params.archId).remove()
         const saved = await city.save()
         res.json(saved)
+
     } catch (err) {
         res.send(err)
     }

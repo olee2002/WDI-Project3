@@ -1,34 +1,56 @@
 import React, { Component } from 'react'
+import axios from 'axios'
+
+class ArchProfile extends Component {
 
 
-class ArchAddForm extends Component {
+    state = {
+        arch: {}
+    }
+    componentWillMount() {
+        this.getArchInfo()
+    }
+    //get a sigle building information
+    getArchInfo = async () => {
+        const { cityId } = this.props.match.params
+        const { archId } = this.props.match.params
+        const res = await axios.get(`/api/city/${cityId}/arch/${archId}`)
+        console.log('From Arch Profile:'+res.data)
+        this.setState({ arch: res.data })
+    }
+    //delete building
+    deleteArch = async () => {
+        const { cityId } = this.props.match.params
+        const { archId } = this.props.match.params
+        const res = await axios.delete(`/api/city/${cityId}/arch/${archId}`)
+        console.log(res.data)
+        this.setState({ user: res.data, redirect: true })
+    }
 
 
-    // deleteArch = async () => {
 
-    //     const { cityId } = this.props.match.params
-    //     const { newId } = this.state
-    //     const res = await axios.delete(`/api/city/${cityId}/arch/${newId}`)
-    //     console.log(res.data)
-    //     this.setState({ user: res.data, redirect: true })
-    // }
+    render() {
+          const {arch} = this. state
 
+        return (
+            <div>
+                <div>
+                    Welcome to arch profile
+                </div>
 
+                <div>
+                    <img src='{arch.photoUrl}' />
+                    {arch.name}
+                    {arch.address}
 
-render(){
-   
-      
-    return (
-<div>
-Welcome to arch profile
+                    <button onClick = {this.deleteArch}>delete</button>
+                </div >
+            </div>
 
+        )
 
-</div>
-
-    )
+    }
 
 }
 
-}
-
-export default ArchAddForm
+export default ArchProfile

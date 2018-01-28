@@ -49,13 +49,6 @@ class UserProfile extends Component {
         this.setState({ user: clonedUser })
     }
 
-    // custom method to have user's updated info sent back to the database. 
-    // showUser = async () => {
-    //     const userId = this.props.match.params.userId
-    //     const res = await axios.get(`/api/users/${userId}`)
-    //     this.setState({ user: res.data })
-    //     console.log(res.data)
-    // }
     handleSubmit = async (e) => {
 
         e.preventDefault()
@@ -64,11 +57,7 @@ class UserProfile extends Component {
         const payload = {
             userName: this.state.user.userName
         }
-        const blankForm = {
-            userName: ''
-        }
         const res = await axios.patch(`/api/users/${userId}`, payload)
-        // await this.showUser()
         this.setState({ user: res.data })
     }
 

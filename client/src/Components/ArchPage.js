@@ -5,6 +5,7 @@ import axios from 'axios'
 
 //Importing Components
 import ArchAddForm from './ArchAddForm'
+import ArchProfile from './ArchProfile'
 
 ///////////////////////////////////////////////////////////////////////////////////
 // CLASS
@@ -36,15 +37,15 @@ class ArchPage extends Component {
         console.log('CArchPost:' + this.state.newArch)
         const newArch = { ...this.state.newArch }
         newArch[e.target.name] = e.target.value
-        console.log('CArchPostHandle:' + JSON.stringify(newArch))
+        // console.log('CArchPostHandle:' + JSON.stringify(newArch))
         this.setState({ newArch })
-        console.log('CArchPostRESULT:' + JSON.stringify(newArch))
+        // console.log('CArchPostRESULT:' + JSON.stringify(newArch))
     }
 
     //create arch
     handleSubmit = async (e) => {
         e.preventDefault()
- 
+
         const { cityId } = this.props.match.params
         const arch = this.state.newArch
         const payload = {
@@ -53,16 +54,17 @@ class ArchPage extends Component {
             photoUrl: this.state.newArch.photoUrl
         }
         const res = await axios.post(`/api/city/${cityId}/arch/`, payload)
-        console.log('ThisFromAxios:'+JSON.stringify(res.data))
-        this.setState({ redirect: true, newArch: payload, newId:arch._id })
-        console.log('That:'+JSON.stringify(this.state.newArch))
+        // console.log('ThisFromAxios:'+JSON.stringify(res.data))
+        this.setState({ redirect: true, newArch: payload })
+        // console.log('That:'+JSON.stringify(this.state.newArch))
+
     }
 
 
     render() {
         const { arches } = this.state
-       
-        console.log(arches)
+
+        // console.log(arches)
         return (<Container>
             <div>
                 <a href='/'> HOME </a>|
@@ -74,7 +76,7 @@ class ArchPage extends Component {
             <ArchAddForm
                 arches={this.state.arches}
                 arch={this.state.newArch}
-                id={this.state.newId}
+                // id={this.state.newId}
                 cityId={this.props.match.params.cityId}
                 redirect={this.state.redirect}
                 handleChange={this.handleChange}
@@ -84,16 +86,20 @@ class ArchPage extends Component {
             <ArchBox>
 
                 {arches.map((arch, i) => {
+
                     return (
                         <div key={i}>
-                            <img src={arch.photoUrl} />
-                            <br />
+                         <a href ={`/city/${this.props.match.params.cityId}/arch/${arch._id}`}> 
+                         <img src={arch.photoUrl} />
+                            </a><br />
                             <div>
                                 {arch.name}
                             </div>
                             <div>
                                 {arch.address}
+
                             </div>
+                           
                         </div>
                     )
                 })
