@@ -10,10 +10,11 @@ import styled from 'styled-components'
 ///////////////////////////////////////////////////////////////////////////////////
 const ArchAddForm = (props) => {
    
-    //after the post is done, redirect to the arch profile page
-    // if (props.redirect) {
-    //     return (<Redirect to={`/city/${props.id}/arch/`} />)
-    // }
+    // after the post is done, redirect to the arch profile page
+    if (props.redirect) {
+        console.log('CityIDfrom ArchAddform'+props.cityId)
+        return (<Redirect to={`/city/${props.cityId}/arch/`} />)
+    }
     return (
         <AddArch>
             <h2>Add arch</h2>

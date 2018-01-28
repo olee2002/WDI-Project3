@@ -48,23 +48,15 @@ class ArchPage extends Component {
         const { cityId } = this.props.match.params
         const arch = this.state.newArch
         const payload = {
-            userName: this.state.newArch.name,
+            name: this.state.newArch.name,
+            address: this.state.newArch.address,
             photoUrl: this.state.newArch.photoUrl
-        }
-        const blankForm = {
-            userName: '',
-            photoUrl: '',
         }
         const res = await axios.post(`/api/city/${cityId}/arch/`, payload)
         console.log('ThisFromAxios:'+JSON.stringify(res.data))
-        this.setState({ redirect: true, newArch: blankForm, newId:res.data._id })
+        this.setState({ redirect: true, newArch: payload, newId:arch._id })
         console.log('That:'+JSON.stringify(this.state.newArch))
     }
-
-
-
-
-
 
 
     render() {
@@ -74,6 +66,7 @@ class ArchPage extends Component {
         return (<Container>
             <div>
                 <a href='/'> HOME </a>|
+                <a href='/users'> USERS</a>|
                 <a href='/city'> CITIES</a>|
                 <a href={`/city/${this.props.match.params.cityId}/arch`}> ARCH </a>
             </div>
