@@ -129,7 +129,7 @@ color: white;
 text-shadow:1.5px 1.5px black;
 
 img{
-                border-radius: 2vh;
+    border-radius: 2vh;
     width: 20vh;
     height: 20vh;
     margin: 2vh;

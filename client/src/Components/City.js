@@ -8,7 +8,7 @@ import styled from 'styled-components'
 ///////////////////////////////////////////////////////////////////////////////////
 const City = (props) => {
     return (
-        <CityWrapper>
+        <CityContainer>
             <div>
                 Enter City Name
             </div>
@@ -36,7 +36,7 @@ const City = (props) => {
                     X
                 </button>
             </div>
-        </CityWrapper>
+        </CityContainer>
     )
 }
 
@@ -46,7 +46,7 @@ export default City
 //STYLED-COMPONENTS
 ///////////////////////////////////////////////////////////////////////////////////
 
-const CityWrapper = styled.div`
+const CityContainer = styled.div`
   height:30vh;
   width:30vh;
   display: flex;
