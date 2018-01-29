@@ -17,7 +17,7 @@ const ArchAddForm = (props) => {
     // }
     return (
         <AddArch>
-            <h2>Add arch</h2>
+            <h2>Add Your Favorite Buildings</h2>
             <form 
             onSubmit={props.handleSubmit}
             >

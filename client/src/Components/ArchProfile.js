@@ -3,9 +3,9 @@ import axios from 'axios'
 import styled from 'styled-components'
 import { Redirect } from 'react-router-dom'
 import FaTrash from 'react-icons/lib/fa/trash'
-// import ImagesUploader from 'react-images-uploader';
-// import 'react-images-uploader/styles.css';
-// import 'react-images-uploader/font.css';
+import ImagesUploader from 'react-images-uploader';
+import 'react-images-uploader/styles.css';
+import 'react-images-uploader/font.css';
 
 
 ///////////////////////////////////////////////////////////////////////////////////
@@ -70,9 +70,20 @@ class ArchProfile extends Component {
                     <div>
                         {arch.address}
                     </div>
-
+                   
 
                 </ArchContainer >
+                 
+                <ImagesUploader
+                        url="http://localhost:4000/multiple"
+                        optimisticPreviews
+                        onLoadEnd={(err) => {
+                            if (err) {
+                                console.error(err);
+                            }
+                        }}
+                        label="Upload multiple images"
+                    />
             </div>
         )
     }
