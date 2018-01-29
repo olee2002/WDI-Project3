@@ -62,11 +62,9 @@ const AddArch = styled.div`
     flex-direction: column;
     align-items: center;
     margin: 0 auto;
-    color: black;
-    /* margin-top: 200px; */
+    color: white;
     font-size: 2vh;
-    padding: 0px;
-    text-shadow: 3px 3px 0px #bdbdbd;
+    text-shadow: 1px 1px 0px black;
     input{
         display:flex;
         margin-top:6px;

@@ -66,6 +66,8 @@ const CityContainer = styled.div`
     margin: 10px;
     height:4vh;
     width:25vh;
+    font-family: 'Montserrat', sans-serif;
+    
     
   textarea {
     /* background-color: transparent; */
@@ -75,6 +77,7 @@ const CityContainer = styled.div`
     border: 1px;
     width:30vw;
     height: 150px;
+    font-family: 'Montserrat', sans-serif;
     }
 
 `

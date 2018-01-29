@@ -39,33 +39,38 @@ class ArchProfile extends Component {
         if (this.state.redirect) {
             return (<Redirect to={`/city/${cityId}/arch`} />)
         }
-        
+
         return (
-            <ArchContainer>
-                <div>
+            <div>
+
+                <Nav>
                     <a href='/'> HOME </a>|
                 <a href='/users'> USERS</a>|
                 <a href='/city'> CITIES</a>|
                 <a href={`/city/${cityId}/arch`}> ARCH </a>
-                </div>
-                <br/>
-                <div>
-                    Architecture profile
-                </div>
+                </Nav>
+                <ArchContainer>
 
-                <div>
-                    <img src={arch.photoUrl} />
-                </div>
-                <div>
-                   <h2> {arch.name}</h2>
-                </div>
-                <div>
-                    {arch.address}
-                </div>
-                <div>
-                    <h1 onClick={this.deleteArch}><FaTrash /></h1>
-                </div >
-            </ArchContainer >
+                    <br />
+                    <div>
+                        <h2>Architecture profile</h2>
+                    </div>
+                    <div>
+                        <h1 onClick={this.deleteArch}><FaTrash /></h1>
+                    </div >
+                    <div>
+                        <img src={arch.photoUrl} />
+                    </div>
+                    <div>
+                        <h3> {arch.name}</h3>
+                    </div>
+                    <div>
+                        {arch.address}
+                    </div>
+
+
+                </ArchContainer >
+            </div>
         )
     }
 }
@@ -75,8 +80,13 @@ export default ArchProfile
 ///////////////////////////////////////////////////////////////////////////////////
 //STYLED-COMPONENTS
 ///////////////////////////////////////////////////////////////////////////////////
-
-
+const Nav = styled.div`
+color:white;
+a{
+    text-decoration:none;
+    color:white
+}
+`
 const ArchContainer = styled.div`
 
   display: flex;
@@ -85,8 +95,11 @@ const ArchContainer = styled.div`
   align-items: center;
   margin: 10px;
   padding: 20px;
-  text-shadow: 1px 1px 0px rgba(0,0,0,0.2);
-  
+  color: white;
+    font-size: 2vh;
+    text-shadow: 1px 1px 0px black;
+ 
+
   img{
     border-radius: 2vh;
     width: 30vh;
