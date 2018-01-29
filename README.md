@@ -13,7 +13,7 @@
 
 ## Technologies
 
-React/Express/MongoDB/Mongoose/HTML/CSS/Moment.JS
+React/Express/MongoDB/Mongoose/HTML/CSS
 
 
 ## Link to Heroku to view the work
