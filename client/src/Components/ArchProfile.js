@@ -75,9 +75,9 @@ class ArchProfile extends Component {
                 </ArchContainer >
                  
                 <ImagesUploader
-                        url="http://localhost:4000/multiple"
+                        url="/multiple"
                         optimisticPreviews
-                        onLoadEnd={(err) => {
+                        onLoadEnd ={(err) => {
                             if (err) {
                                 console.error(err);
                             }

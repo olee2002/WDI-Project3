@@ -7,6 +7,10 @@ const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
 const mongoose = require('mongoose')
+const corsPrefetch = require('cors-prefetch-middleware')
+const imagesUpload = require('images-upload-middleware')
+
+
 
 const app = express()
 //db setup
@@ -33,6 +37,29 @@ app.set('view engine', 'hbs')
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
+// app.use('/static', express.static('./server/static'))
+// app.use(corsPrefetch)
+
+app.post('/multiple', async (req, res) => {
+  console.log("POSTING IMAGE")
+  imagesUpload(
+	'/client/build/multipleFiles',
+	'http://localhost:4000/multiple',
+	true
+)}
+)
+// app.post('/multiple', async (req, res) => {
+//   try {
+//       //create a user
+//       const newUser = await User.create(req.body)
+//       res.json(newUser)
+//       console.log(newUser)
+//   } catch (err) {
+//       res.send(err)
+//   }
+// })
+
+
 app.use(logger('dev'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
