@@ -3,6 +3,8 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import axios from 'axios'
 
+
+
 //Importing components
 import CityList from './CityList'
 // import ArchPage from './ArchPage'
@@ -26,9 +28,10 @@ class cityPage extends Component {
         const newCity = res.data
 
         const newCities = [...this.state.cities]
-        newCities.unshift(newCity)
+        newCities.push(newCity)
         this.setState({ cities: newCities })
         console.log(this.state.cities)
+        // const reload = await window.location.reload()
     }
 
     deleteCity = async (city) => {

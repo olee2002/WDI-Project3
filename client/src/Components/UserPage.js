@@ -74,24 +74,24 @@ class UserPage extends Component {
                         </SignUpContainer>
                     </div>
                     <Header>Select A User</Header>
-                    
+
                     <Users>
                         {this.state.users.map((user, i) => {
                             return (
                                 <Overdrive id={user._id}>
-                                <Names key={i}>
-                                    <A href={`/users/${user._id}`}>
+                                    <Names key={i}>
+                                        <A href={`/users/${user._id}`}>
                                             <UserBox>
                                                 <img src={user.photoUrl} />
                                             </UserBox>
-                                    </A>
-                                </Names>
+                                        </A>
+                                    </Names>
                                 </Overdrive>
                             )
                         }
                         )}
                     </Users>
-                    
+
                 </Container>
             </Body>
         );

@@ -56,13 +56,13 @@ class ArchPage extends Component {
         const res = await axios.post(`/api/city/${cityId}/arch/`, payload)
         // console.log('ThisFromAxios:'+JSON.stringify(res.data))
         this.setState({ redirect: true, newArch: payload })
-        console.log('That:'+JSON.stringify(this.state.newArch))
-       const reload = await window.location.reload()
+        console.log('That:' + JSON.stringify(this.state.newArch))
+        const reload = await window.location.reload()
     }
 
     render() {
         const { arches } = this.state
-        console.log('ArchID:'+JSON.stringify(this.state.newArch))
+        console.log('ArchID:' + JSON.stringify(this.state.newArch))
 
         // console.log(arches)
         return (<Container>
@@ -70,7 +70,7 @@ class ArchPage extends Component {
                 <a href='/'> HOME </a>|
                 <a href='/users'> USERS</a>|
                 <a href='/city'> CITIES</a>
-              
+
             </div>
 
             <ArchAddForm
@@ -89,13 +89,13 @@ class ArchPage extends Component {
 
                     return (
                         <ThisArch key={i}>
-                         <a href ={`/city/${this.props.match.params.cityId}/arch/${arch._id}`}> 
-                         <img src={arch.photoUrl} />
+                            <a href={`/city/${this.props.match.params.cityId}/arch/${arch._id}`}>
+                                <img src={arch.photoUrl} />
                             </a>
                             <div>
                                 {arch.name}
                             </div>
-                           
+
                         </ThisArch>
                     )
                 })
