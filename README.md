@@ -25,11 +25,5 @@ https://my-architecture.herokuapp.com/
 
 https://trello.com/b/WpZK1sOY/my-architecture
 
-## ERD
-![alt tag](https://github.com/olee2002/WDI-Project3/blob/master/public/images/erd.jpg?raw=true)
 
-
-## Wire-frame
-
-![alt tag](https://github.com/olee2002/WDI-Project3/blob/master/public/images/wireframe.jpg?raw=true)
 
